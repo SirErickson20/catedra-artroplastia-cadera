@@ -200,25 +200,36 @@ export const inicio = {
 };
 
 // ---------------------------------------------------------------------
+//  EQUIPO (se usa en Investigación y en el pie de página)
+// ---------------------------------------------------------------------
+export const autor = {
+  nombre: "Nahuel Facundo Llanes Severich",
+  rol: "Autor",
+  detalle: "Estudiante de Kinesiología y Fisiatría",
+};
+
+export const desarrollador = {
+  nombre: "Erick Enrique Miranda",
+  rol: "Diseño y desarrollo web",
+  detalle: "",
+  contacto: "erickmiranda.rz@gmail.com",
+};
+
+// ---------------------------------------------------------------------
 //  INVESTIGACIÓN
 // ---------------------------------------------------------------------
 export const investigacion = {
   titulo: "Investigación",
   descripcion:
-    "Equipo de autores, creadores de la página e investigadores que hicieron posible este material.",
+    "El autor, el desarrollo web y los docentes e investigadores que hicieron posible este material.",
   grupos: [
     {
-      titulo: "Autores",
-      personas: [
-        { nombre: "Nombre Apellido", rol: "Autor/a", detalle: "Estudiante de Kinesiología" },
-        { nombre: "Nombre Apellido", rol: "Autor/a", detalle: "Estudiante de Kinesiología" },
-      ],
+      titulo: "Autor",
+      personas: [autor],
     },
     {
-      titulo: "Creadores de la página",
-      personas: [
-        { nombre: "Nombre Apellido", rol: "Diseño y desarrollo web", detalle: "" },
-      ],
+      titulo: "Diseño y desarrollo web",
+      personas: [desarrollador],
     },
     {
       titulo: "Investigadores y docentes",
@@ -419,5 +430,7 @@ export const videos = {
 
 export const footer = {
   texto: "Material educativo de la cátedra. Su contenido no reemplaza la consulta profesional.",
-  contacto: "", // ej: "catedra@universidad.edu.ar"
+  // Créditos que se muestran en el pie de página
+  creditos: [autor, desarrollador],
+  contacto: desarrollador.contacto,
 };

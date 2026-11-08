@@ -1,18 +1,9 @@
 import PageHeader from "@/components/PageHeader";
 import SectionTitle from "@/components/SectionTitle";
 import { investigacion } from "@/data/content";
+import { iniciales } from "@/lib/iniciales";
 
 export const metadata = { title: "Investigación" };
-
-function iniciales(nombre) {
-  return nombre
-    .replace(/^(Lic\.|Dr\.|Dra\.|Mg\.)\s*/i, "")
-    .split(" ")
-    .map((p) => p[0])
-    .slice(0, 2)
-    .join("")
-    .toUpperCase();
-}
 
 export default function InvestigacionPage() {
   const { titulo, descripcion, grupos, bibliografia } = investigacion;
@@ -38,6 +29,14 @@ export default function InvestigacionPage() {
                     <h3 className="font-semibold text-white">{persona.nombre}</h3>
                     <p className="text-sm font-medium text-brand-100/80">{persona.rol}</p>
                     {persona.detalle && <p className="mt-1 text-sm text-white/45">{persona.detalle}</p>}
+                    {persona.contacto && (
+                      <a
+                        href={`mailto:${persona.contacto}`}
+                        className="mt-1 inline-block text-sm text-white/60 underline decoration-white/25 underline-offset-4 transition hover:text-white"
+                      >
+                        {persona.contacto}
+                      </a>
+                    )}
                   </div>
                 </article>
               ))}

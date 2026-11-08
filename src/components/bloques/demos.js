@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { banderasRojas, contraindicaciones, investigacion, videos } from "@/data/content";
+import { iniciales } from "@/lib/iniciales";
 
 /** Elige la demo animada según el id de la tarjeta */
 export function Demo({ tarjeta }) {
@@ -280,15 +281,6 @@ const ESTRELLAS = [
   [12, 18], [80, 10], [65, 30], [22, 70], [88, 62], [45, 88], [8, 48], [70, 85], [35, 12], [92, 35],
 ];
 
-function iniciales(nombre) {
-  return nombre
-    .replace(/^(Lic\.|Dr\.|Dra\.|Mg\.)\s*/i, "")
-    .split(" ")
-    .map((p) => p[0])
-    .slice(0, 2)
-    .join("")
-    .toUpperCase();
-}
 
 function DemoInvestigacion() {
   const personas = investigacion.grupos.flatMap((g) => g.personas);
