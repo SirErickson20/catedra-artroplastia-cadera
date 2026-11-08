@@ -12,7 +12,9 @@
   --color-alerta-50: #fef2f2;
   --color-alerta-500: #dc2626;
   --color-alerta-700: #b91c1c;
+  --color-tinta: #0b0612; /* fondo oscuro de la portada, navbar y pantalla de carga */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-unbounded), var(--font-inter), ui-sans-serif, sans-serif;
 }
 
 html {

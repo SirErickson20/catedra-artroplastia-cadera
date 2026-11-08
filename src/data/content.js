@@ -15,6 +15,7 @@ export const site = {
   anio: 2026,
   descripcion:
     "Material educativo sobre la rehabilitación kinésica en pacientes con artroplastía de cadera.",
+  loaderTexto: "Cargando cátedra", // texto de la pantalla de carga
 };
 
 // Menú superior: el orden de este array es el orden en la Navbar
@@ -31,12 +32,27 @@ export const navLinks = [
 export const inicio = {
   hero: {
     etiqueta: "Kinefisiatría Traumatológica y Reumatológica",
-    titulo: "Artroplastía de Cadera",
+    // Cada elemento es una línea del título grande de la portada
+    tituloLineas: ["Artroplastía", "de cadera"],
     subtitulo:
-      "Bienvenidos y bienvenidas al espacio virtual de la cátedra. Aquí encontrarás contenidos teóricos, signos de alarma, demostraciones prácticas y el trabajo de investigación de nuestro equipo.",
+      "Contenidos teóricos, signos de alarma, demostraciones prácticas e investigación para la rehabilitación kinésica.",
     botonPrincipal: { href: "/banderas-rojas", label: "Ver banderas rojas" },
     botonSecundario: { href: "/videos", label: "Ver demostraciones" },
+    pieIzquierda: "Cátedra · Kinesiología y Fisiatría",
   },
+  // Tarjetas del carrusel curvo de la portada.
+  // imagen: ruta a una foto dentro de /public (ej: "/carrusel/marcha.jpg").
+  // Si se deja vacío se muestra un degradado violeta con el ícono.
+  carrusel: [
+    { titulo: "Artrosis de cadera", icono: "🦴", imagen: "" },
+    { titulo: "Prótesis total", icono: "⚙️", imagen: "" },
+    { titulo: "Abordajes quirúrgicos", icono: "🩺", imagen: "" },
+    { titulo: "Marcha asistida", icono: "🚶", imagen: "" },
+    { titulo: "Fortalecimiento", icono: "💪", imagen: "" },
+    { titulo: "Banderas rojas", icono: "🚩", imagen: "" },
+    { titulo: "Transferencias", icono: "🪑", imagen: "" },
+    { titulo: "Educación al paciente", icono: "📋", imagen: "" },
+  ],
   bienvenida: {
     titulo: "Bienvenida",
     parrafos: [
