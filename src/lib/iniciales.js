@@ -1,6 +1,6 @@
 /**
  * Iniciales de nombre + apellido.
- * "Erick Enrique Miranda" → "EM" · "Nahuel Facundo Llanes Severich" → "NL"
+ * "Erick Enrique Miranda" → "EM" · "Facundo Nahuel Llanes Severich" → "FL"
  * (con 4 palabras o más se toma el primer apellido: la anteúltima palabra)
  */
 export function iniciales(nombre) {

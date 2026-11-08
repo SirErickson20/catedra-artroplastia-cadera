@@ -203,7 +203,7 @@ export const inicio = {
 //  EQUIPO (se usa en Investigación y en el pie de página)
 // ---------------------------------------------------------------------
 export const autor = {
-  nombre: "Nahuel Facundo Llanes Severich",
+  nombre: "Facundo Nahuel Llanes Severich",
   rol: "Autor",
   detalle: "Estudiante de Kinesiología y Fisiatría",
 };
