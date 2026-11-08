@@ -60,30 +60,95 @@ export const inicio = {
       "Este sitio fue pensado como material de apoyo para estudiantes de la cátedra, reuniendo de forma clara los conceptos clave del abordaje kinésico pre y postoperatorio.",
     ],
   },
-  // Tarjetas de acceso a cada sección (se muestran en Inicio)
-  secciones: [
-    {
-      href: "/investigacion",
-      titulo: "Investigación",
-      resumen:
-        "Conocé a los autores, creadores de la página e investigadores que participaron en este proyecto.",
-      icono: "🔬",
-    },
-    {
-      href: "/banderas-rojas",
-      titulo: "Banderas Rojas",
-      resumen:
-        "Alertas clínicas y signos de alarma que requieren derivación o suspensión del tratamiento.",
-      icono: "🚩",
-    },
-    {
-      href: "/videos",
-      titulo: "Videos / Demostraciones",
-      resumen:
-        "Demostraciones prácticas de ejercicios, transferencias y pautas de cuidado articular.",
-      icono: "🎥",
-    },
-  ],
+  // Bloques animados de la portada (estilo tarjetas con demo).
+  // categorias: pestañas para filtrar. Cada tarjeta indica en qué categorías aparece.
+  // color: color del brillo superior de la tarjeta (formato #RRGGBB).
+  bloques: {
+    titulo: "Todo lo que necesitás, en un solo lugar.",
+    subtitulo: "Explorá los ejes de la cátedra sin perderte en apuntes sueltos.",
+    categorias: [
+      { id: "todo", label: "Todo" },
+      { id: "clinica", label: "Clínica" },
+      { id: "rehabilitacion", label: "Rehabilitación" },
+      { id: "recursos", label: "Recursos" },
+    ],
+    tarjetas: [
+      {
+        id: "banderas",
+        titulo: "Banderas Rojas",
+        icono: "🚩",
+        color: "#b91c1c",
+        href: "/banderas-rojas",
+        categorias: ["clinica"],
+        descripcion: "Reconocé los signos de alarma que obligan a suspender la sesión y derivar.",
+      },
+      {
+        id: "objetivos",
+        titulo: "Objetivos",
+        icono: "🎯",
+        color: "#1d4ed8",
+        href: "/#resumen",
+        categorias: ["rehabilitacion"],
+        descripcion: "Las metas del tratamiento kinésico, del control del dolor a la independencia funcional.",
+        items: [
+          "Control del dolor y edema",
+          "Rango de movimiento",
+          "Fuerza muscular",
+          "Reeducación de la marcha",
+          "Independencia funcional",
+        ],
+      },
+      {
+        id: "fases",
+        titulo: "Fases de rehabilitación",
+        icono: "📈",
+        color: "#b45309",
+        href: "/#resumen",
+        categorias: ["rehabilitacion"],
+        descripcion: "Del preoperatorio al retorno a las actividades, progresando por criterios clínicos.",
+        items: [
+          { nombre: "Preoperatoria", detalle: "Educación y preparación física" },
+          { nombre: "Postoperatoria inmediata", detalle: "Analgesia, movilidad y transferencias" },
+          { nombre: "Intermedia", detalle: "Fuerza, rango y marcha" },
+          { nombre: "Avanzada", detalle: "Retorno a las actividades" },
+        ],
+      },
+      {
+        id: "ejercicio",
+        titulo: "Indicación de ejercicio",
+        icono: "🏋️",
+        color: "#15803d",
+        href: "/videos",
+        categorias: ["clinica", "rehabilitacion"],
+        descripcion: "Ejercicios con su dosificación: series, repeticiones y pautas de seguridad.",
+        // ⚠️ Dosificación orientativa: revisar con el equipo docente
+        items: [
+          { nombre: "Bombeo de tobillo", series: 3, reps: 15, nota: "Prevención de TVP" },
+          { nombre: "Isométrico de cuádriceps", series: 3, reps: 10, nota: "Sostener 5 segundos" },
+          { nombre: "Puente glúteo", series: 3, reps: 10, nota: "Respetar precauciones del abordaje" },
+          { nombre: "Sentarse y pararse", series: 2, reps: 8, nota: "Silla alta, sin cruzar las piernas" },
+        ],
+      },
+      {
+        id: "videos",
+        titulo: "Videos",
+        icono: "🎬",
+        color: "#a21caf",
+        href: "/videos",
+        categorias: ["recursos"],
+        descripcion: "Demostraciones prácticas de ejercicios, transferencias y marcha.",
+      },
+      {
+        id: "investigacion",
+        titulo: "Investigación",
+        icono: "🔬",
+        color: "#6d28d9",
+        href: "/investigacion",
+        categorias: ["recursos"],
+        descripcion: "Conocé al equipo de autores, creadores e investigadores detrás del proyecto.",
+      },
+    ],
+  },
   // Resumen general del tema (tarjetas informativas)
   resumen: {
     titulo: "Resumen general",

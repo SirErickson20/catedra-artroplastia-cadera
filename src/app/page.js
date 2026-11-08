@@ -1,12 +1,13 @@
 import Link from "next/link";
 import Card from "@/components/Card";
 import CarruselCurvo from "@/components/CarruselCurvo";
+import Bloques from "@/components/bloques/Bloques";
 import Reloj from "@/components/Reloj";
 import { Esquinas } from "@/components/Loader";
 import { inicio } from "@/data/content";
 
 export default function InicioPage() {
-  const { hero, carrusel, bienvenida, secciones, resumen } = inicio;
+  const { hero, carrusel, bloques, bienvenida, resumen } = inicio;
 
   return (
     <>
@@ -72,6 +73,9 @@ export default function InicioPage() {
         </div>
       </section>
 
+      {/* Bloques animados (Banderas rojas, Objetivos, Fases, Ejercicio, Videos, Investigación) */}
+      <Bloques datos={bloques} />
+
       {/* Bienvenida */}
       <section className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
         <h2 className="text-2xl font-bold text-brand-900">{bienvenida.titulo}</h2>
@@ -80,19 +84,8 @@ export default function InicioPage() {
         ))}
       </section>
 
-      {/* Accesos a secciones */}
-      <section className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="grid gap-6 md:grid-cols-3">
-          {secciones.map((s) => (
-            <Card key={s.href} href={s.href} titulo={s.titulo} icono={s.icono}>
-              {s.resumen}
-            </Card>
-          ))}
-        </div>
-      </section>
-
       {/* Resumen general */}
-      <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+      <section id="resumen" className="mx-auto max-w-6xl scroll-mt-20 px-4 pb-14 sm:px-6">
         <h2 className="text-2xl font-bold text-brand-900">{resumen.titulo}</h2>
         <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {resumen.temas.map((t) => (

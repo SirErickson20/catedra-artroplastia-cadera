@@ -15,6 +15,33 @@
   --color-tinta: #0b0612; /* fondo oscuro de la portada, navbar y pantalla de carga */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-unbounded), var(--font-inter), ui-sans-serif, sans-serif;
+
+  /* Animaciones de los bloques de la portada */
+  --animate-subir: subir 22s linear infinite;
+  --animate-aparecer: aparecer 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-orbitar: orbitar 40s linear infinite;
+  --animate-contraorbitar: orbitar 40s linear infinite reverse;
+  --animate-anillo: anillo 6s ease-in-out infinite both;
+  --animate-progreso: progreso 3.5s linear both;
+
+  @keyframes subir {
+    to { transform: translateY(-50%); }
+  }
+  @keyframes aparecer {
+    from { opacity: 0; transform: translateY(16px); }
+  }
+  @keyframes orbitar {
+    to { transform: rotate(360deg); }
+  }
+  @keyframes anillo {
+    0% { stroke-dashoffset: 94.25; }
+    35%, 85% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: 94.25; }
+  }
+  @keyframes progreso {
+    from { width: 0; }
+    to { width: 100%; }
+  }
 }
 
 html {
