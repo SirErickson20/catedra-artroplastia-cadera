@@ -2,6 +2,7 @@ import Link from "next/link";
 import Card from "@/components/Card";
 import CarruselCurvo from "@/components/CarruselCurvo";
 import Bloques from "@/components/bloques/Bloques";
+import SectionTitle from "@/components/SectionTitle";
 import Reloj from "@/components/Reloj";
 import { Esquinas } from "@/components/Loader";
 import { inicio } from "@/data/content";
@@ -77,17 +78,20 @@ export default function InicioPage() {
       <Bloques datos={bloques} />
 
       {/* Bienvenida */}
-      <section className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
-        <h2 className="text-2xl font-bold text-brand-900">{bienvenida.titulo}</h2>
-        {bienvenida.parrafos.map((p, i) => (
-          <p key={i} className="mt-4 leading-relaxed text-slate-700">{p}</p>
-        ))}
+      <section className="relative isolate">
+        <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-64 bg-[radial-gradient(50%_100%_at_50%_0%,rgba(130,38,209,0.18),transparent_70%)]" />
+        <div className="mx-auto max-w-3xl px-4 py-20 text-center sm:px-6">
+          <SectionTitle titulo={`${bienvenida.titulo}.`} subtitulo={bienvenida.subtitulo} centrado />
+          {bienvenida.parrafos.map((p, i) => (
+            <p key={i} className="mt-5 leading-relaxed text-white/60">{p}</p>
+          ))}
+        </div>
       </section>
 
       {/* Resumen general */}
       <section id="resumen" className="mx-auto max-w-6xl scroll-mt-20 px-4 pb-14 sm:px-6">
-        <h2 className="text-2xl font-bold text-brand-900">{resumen.titulo}</h2>
-        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <SectionTitle titulo={resumen.titulo} subtitulo={resumen.subtitulo} centrado />
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {resumen.temas.map((t) => (
             <Card key={t.titulo} titulo={t.titulo}>
               {t.texto}

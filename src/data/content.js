@@ -56,6 +56,7 @@ export const inicio = {
   ],
   bienvenida: {
     titulo: "Bienvenida",
+    subtitulo: "Un espacio para aprender la rehabilitación paso a paso.",
     parrafos: [
       "La artroplastía de cadera es uno de los procedimientos ortopédicos más frecuentes y exitosos. Su resultado funcional depende en gran medida de una rehabilitación kinésica adecuada, segura y basada en la evidencia.",
       "Este sitio fue pensado como material de apoyo para estudiantes de la cátedra, reuniendo de forma clara los conceptos clave del abordaje kinésico pre y postoperatorio.",
@@ -161,7 +162,8 @@ export const inicio = {
   },
   // Resumen general del tema (tarjetas informativas)
   resumen: {
-    titulo: "Resumen general",
+    titulo: "Resumen general.",
+    subtitulo: "Lo esencial de la artroplastía de cadera.",
     temas: [
       {
         titulo: "¿Qué es?",

@@ -1,4 +1,5 @@
 import PageHeader from "@/components/PageHeader";
+import SectionTitle from "@/components/SectionTitle";
 import { investigacion } from "@/data/content";
 
 export const metadata = { title: "Investigación" };
@@ -20,23 +21,23 @@ export default function InvestigacionPage() {
     <>
       <PageHeader titulo={titulo} descripcion={descripcion} />
 
-      <div className="mx-auto max-w-6xl space-y-14 px-4 py-14 sm:px-6">
+      <div className="mx-auto max-w-6xl space-y-16 px-4 py-16 sm:px-6">
         {grupos.map((grupo) => (
           <section key={grupo.titulo}>
-            <h2 className="text-2xl font-bold text-brand-900">{grupo.titulo}</h2>
+            <SectionTitle titulo={`${grupo.titulo}.`} />
             <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {grupo.personas.map((persona, i) => (
                 <article
                   key={`${persona.nombre}-${i}`}
-                  className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+                  className="flex items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] transition hover:border-white/20"
                 >
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-100 font-semibold text-brand-700">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/20 bg-linear-to-b from-brand-500 to-brand-900 font-semibold text-white">
                     {iniciales(persona.nombre)}
                   </div>
                   <div>
-                    <h3 className="font-semibold text-slate-900">{persona.nombre}</h3>
-                    <p className="text-sm font-medium text-brand-600">{persona.rol}</p>
-                    {persona.detalle && <p className="mt-1 text-sm text-slate-500">{persona.detalle}</p>}
+                    <h3 className="font-semibold text-white">{persona.nombre}</h3>
+                    <p className="text-sm font-medium text-brand-100/80">{persona.rol}</p>
+                    {persona.detalle && <p className="mt-1 text-sm text-white/45">{persona.detalle}</p>}
                   </div>
                 </article>
               ))}
@@ -45,8 +46,8 @@ export default function InvestigacionPage() {
         ))}
 
         <section>
-          <h2 className="text-2xl font-bold text-brand-900">{bibliografia.titulo}</h2>
-          <ol className="mt-4 list-decimal space-y-2 pl-6 text-slate-700">
+          <SectionTitle titulo={`${bibliografia.titulo}.`} />
+          <ol className="mt-6 list-decimal space-y-2 rounded-2xl border border-white/10 bg-white/[0.03] py-6 pl-12 pr-6 text-white/70 marker:text-white/40">
             {bibliografia.items.map((ref, i) => (
               <li key={i}>{ref}</li>
             ))}
