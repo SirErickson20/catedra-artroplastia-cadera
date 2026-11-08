@@ -1,0 +1,271 @@
+// =====================================================================
+//  CONTENIDO EDITABLE DEL SITIO
+//  Todos los textos, títulos, autores, alertas y videos viven acá.
+//  Editá este archivo y el sitio se actualiza solo; no hace falta
+//  tocar los componentes.
+//  ⚠️ El contenido clínico es un borrador base: debe ser revisado y
+//  validado por el equipo docente de la cátedra antes de publicarse.
+// =====================================================================
+
+export const site = {
+  nombre: "Artroplastía de Cadera",
+  catedra: "Cátedra: Kinefisiatría Traumatológica y Reumatológica",
+  tema: "Artroplastía de Cadera",
+  institucion: "Universidad — Carrera de Kinesiología y Fisiatría",
+  anio: 2026,
+  descripcion:
+    "Material educativo sobre la rehabilitación kinésica en pacientes con artroplastía de cadera.",
+};
+
+// Menú superior: el orden de este array es el orden en la Navbar
+export const navLinks = [
+  { href: "/", label: "Inicio" },
+  { href: "/investigacion", label: "Investigación" },
+  { href: "/banderas-rojas", label: "Banderas Rojas" },
+  { href: "/videos", label: "Videos" },
+];
+
+// ---------------------------------------------------------------------
+//  INICIO
+// ---------------------------------------------------------------------
+export const inicio = {
+  hero: {
+    etiqueta: "Kinefisiatría Traumatológica y Reumatológica",
+    titulo: "Artroplastía de Cadera",
+    subtitulo:
+      "Bienvenidos y bienvenidas al espacio virtual de la cátedra. Aquí encontrarás contenidos teóricos, signos de alarma, demostraciones prácticas y el trabajo de investigación de nuestro equipo.",
+    botonPrincipal: { href: "/banderas-rojas", label: "Ver banderas rojas" },
+    botonSecundario: { href: "/videos", label: "Ver demostraciones" },
+  },
+  bienvenida: {
+    titulo: "Bienvenida",
+    parrafos: [
+      "La artroplastía de cadera es uno de los procedimientos ortopédicos más frecuentes y exitosos. Su resultado funcional depende en gran medida de una rehabilitación kinésica adecuada, segura y basada en la evidencia.",
+      "Este sitio fue pensado como material de apoyo para estudiantes de la cátedra, reuniendo de forma clara los conceptos clave del abordaje kinésico pre y postoperatorio.",
+    ],
+  },
+  // Tarjetas de acceso a cada sección (se muestran en Inicio)
+  secciones: [
+    {
+      href: "/investigacion",
+      titulo: "Investigación",
+      resumen:
+        "Conocé a los autores, creadores de la página e investigadores que participaron en este proyecto.",
+      icono: "🔬",
+    },
+    {
+      href: "/banderas-rojas",
+      titulo: "Banderas Rojas",
+      resumen:
+        "Alertas clínicas y signos de alarma que requieren derivación o suspensión del tratamiento.",
+      icono: "🚩",
+    },
+    {
+      href: "/videos",
+      titulo: "Videos / Demostraciones",
+      resumen:
+        "Demostraciones prácticas de ejercicios, transferencias y pautas de cuidado articular.",
+      icono: "🎥",
+    },
+  ],
+  // Resumen general del tema (tarjetas informativas)
+  resumen: {
+    titulo: "Resumen general",
+    temas: [
+      {
+        titulo: "¿Qué es?",
+        texto:
+          "Procedimiento quirúrgico que reemplaza total o parcialmente la articulación coxofemoral por una prótesis, con el objetivo de aliviar el dolor y restaurar la función.",
+      },
+      {
+        titulo: "Indicaciones frecuentes",
+        texto:
+          "Artrosis avanzada, artritis reumatoidea, necrosis avascular de cabeza femoral y fracturas de cuello femoral, entre otras.",
+      },
+      {
+        titulo: "Tipos de prótesis",
+        texto:
+          "Artroplastía total (componente acetabular y femoral) o parcial/hemiartroplastía; fijación cementada, no cementada o híbrida.",
+      },
+      {
+        titulo: "Abordajes quirúrgicos",
+        texto:
+          "El abordaje (posterior, lateral, anterior) condiciona las precauciones de movimiento que deben respetarse en el postoperatorio.",
+      },
+      {
+        titulo: "Objetivos kinésicos",
+        texto:
+          "Control del dolor y edema, prevención de complicaciones, recuperación de rango de movimiento y fuerza, reeducación de la marcha e independencia funcional.",
+      },
+      {
+        titulo: "Fases de rehabilitación",
+        texto:
+          "Preoperatoria (educación), postoperatoria inmediata, intermedia y avanzada / retorno a actividades, progresando según criterios clínicos.",
+      },
+    ],
+  },
+};
+
+// ---------------------------------------------------------------------
+//  INVESTIGACIÓN
+// ---------------------------------------------------------------------
+export const investigacion = {
+  titulo: "Investigación",
+  descripcion:
+    "Equipo de autores, creadores de la página e investigadores que hicieron posible este material.",
+  grupos: [
+    {
+      titulo: "Autores",
+      personas: [
+        { nombre: "Nombre Apellido", rol: "Autor/a", detalle: "Estudiante de Kinesiología" },
+        { nombre: "Nombre Apellido", rol: "Autor/a", detalle: "Estudiante de Kinesiología" },
+      ],
+    },
+    {
+      titulo: "Creadores de la página",
+      personas: [
+        { nombre: "Nombre Apellido", rol: "Diseño y desarrollo web", detalle: "" },
+      ],
+    },
+    {
+      titulo: "Investigadores y docentes",
+      personas: [
+        { nombre: "Lic. Nombre Apellido", rol: "Docente a cargo", detalle: "Cátedra de Kinefisiatría Traumatológica y Reumatológica" },
+        { nombre: "Lic. Nombre Apellido", rol: "Investigador/a", detalle: "" },
+      ],
+    },
+  ],
+  bibliografia: {
+    titulo: "Bibliografía de referencia",
+    items: [
+      "Agregar aquí las referencias bibliográficas utilizadas (formato APA / Vancouver).",
+    ],
+  },
+};
+
+// ---------------------------------------------------------------------
+//  BANDERAS ROJAS
+// ---------------------------------------------------------------------
+export const banderasRojas = {
+  titulo: "Banderas Rojas",
+  descripcion:
+    "Signos y síntomas de alarma en el paciente con artroplastía de cadera que obligan a suspender la sesión y derivar de forma inmediata al equipo médico.",
+  aviso:
+    "Ante la presencia de cualquiera de estos signos, suspender el tratamiento y derivar. Este material es educativo y no reemplaza el criterio clínico.",
+  alertas: [
+    {
+      titulo: "Luxación protésica",
+      gravedad: "urgente",
+      signos: [
+        "Dolor súbito e intenso en la cadera, a menudo tras un movimiento",
+        "Acortamiento del miembro y rotación anormal",
+        "Imposibilidad de cargar peso o mover la pierna",
+        "Sensación de “chasquido” o desencaje",
+      ],
+    },
+    {
+      titulo: "Trombosis venosa profunda (TVP)",
+      gravedad: "urgente",
+      signos: [
+        "Dolor en pantorrilla o muslo",
+        "Edema unilateral, calor y enrojecimiento",
+        "Aumento del perímetro del miembro respecto al contralateral",
+      ],
+    },
+    {
+      titulo: "Tromboembolismo pulmonar (TEP)",
+      gravedad: "emergencia",
+      signos: [
+        "Disnea de aparición súbita",
+        "Dolor torácico, especialmente al inspirar",
+        "Taquicardia, taquipnea o desaturación",
+        "Tos con o sin hemoptisis",
+      ],
+    },
+    {
+      titulo: "Infección del sitio quirúrgico / periprotésica",
+      gravedad: "urgente",
+      signos: [
+        "Fiebre o escalofríos",
+        "Secreción, enrojecimiento o calor en la herida",
+        "Dehiscencia de la herida",
+        "Dolor creciente que no mejora con el reposo",
+      ],
+    },
+    {
+      titulo: "Fractura periprotésica",
+      gravedad: "urgente",
+      signos: [
+        "Dolor agudo tras caída o traumatismo",
+        "Deformidad o impotencia funcional",
+        "Imposibilidad de cargar peso",
+      ],
+    },
+    {
+      titulo: "Lesión neurológica",
+      gravedad: "derivar",
+      signos: [
+        "Debilidad para la dorsiflexión del pie (pie caído)",
+        "Parestesias o pérdida de sensibilidad en el miembro",
+        "Alteraciones nuevas que no estaban presentes antes de la cirugía",
+      ],
+    },
+  ],
+  precauciones: {
+    titulo: "Precauciones de movimiento según abordaje",
+    nota: "Las precauciones definitivas las indica el cirujano tratante.",
+    items: [
+      {
+        abordaje: "Posterior / posterolateral",
+        evitar: ["Flexión de cadera mayor a 90°", "Aducción más allá de la línea media", "Rotación interna"],
+      },
+      {
+        abordaje: "Anterior / anterolateral",
+        evitar: ["Extensión de cadera combinada con rotación externa", "Aducción con rotación externa"],
+      },
+    ],
+  },
+};
+
+// ---------------------------------------------------------------------
+//  VIDEOS / DEMOSTRACIONES
+//  youtubeId: es lo que va después de "v=" en la URL de YouTube.
+//    Ej: https://www.youtube.com/watch?v=ABC123xyz  ->  youtubeId: "ABC123xyz"
+//  Si se deja vacío, se muestra un recuadro "Video próximamente".
+// ---------------------------------------------------------------------
+export const videos = {
+  titulo: "Videos y Demostraciones",
+  descripcion:
+    "Demostraciones prácticas para acompañar los contenidos teóricos de la cátedra.",
+  lista: [
+    {
+      titulo: "Ejercicios del postoperatorio inmediato",
+      descripcion: "Bombeo de tobillo, isométricos de cuádriceps y glúteos, deslizamientos de talón.",
+      youtubeId: "",
+      categoria: "Fase inicial",
+    },
+    {
+      titulo: "Transferencias seguras",
+      descripcion: "Cama–silla, sedestación–bipedestación y uso del inodoro respetando precauciones.",
+      youtubeId: "",
+      categoria: "AVD",
+    },
+    {
+      titulo: "Reeducación de la marcha",
+      descripcion: "Marcha con andador y bastones, subida y bajada de escaleras.",
+      youtubeId: "",
+      categoria: "Marcha",
+    },
+    {
+      titulo: "Fortalecimiento progresivo",
+      descripcion: "Ejercicios de abductores, extensores de cadera y control neuromuscular.",
+      youtubeId: "",
+      categoria: "Fase intermedia",
+    },
+  ],
+};
+
+export const footer = {
+  texto: "Material educativo de la cátedra. Su contenido no reemplaza la consulta profesional.",
+  contacto: "", // ej: "catedra@universidad.edu.ar"
+};
