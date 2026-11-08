@@ -23,6 +23,7 @@ export const navLinks = [
   { href: "/", label: "Inicio" },
   { href: "/investigacion", label: "Investigación" },
   { href: "/banderas-rojas", label: "Banderas Rojas" },
+  { href: "/contraindicaciones", label: "Contraindicaciones" },
   { href: "/videos", label: "Videos" },
 ];
 
@@ -81,6 +82,15 @@ export const inicio = {
         href: "/banderas-rojas",
         categorias: ["clinica"],
         descripcion: "Reconocé los signos de alarma que obligan a suspender la sesión y derivar.",
+      },
+      {
+        id: "contraindicaciones",
+        titulo: "Contraindicaciones",
+        icono: "⛔",
+        color: "#0e7490",
+        href: "/contraindicaciones",
+        categorias: ["clinica"],
+        descripcion: "Qué no se debe hacer (absolutas) y qué requiere precaución (relativas).",
       },
       {
         id: "objetivos",
@@ -306,6 +316,65 @@ export const banderasRojas = {
       },
     ],
   },
+};
+
+// ---------------------------------------------------------------------
+//  CONTRAINDICACIONES
+//  tipo: "absoluta" (no se realiza) | "relativa" (se evalúa caso a caso / precaución)
+//  ⚠️ Borrador: revisar y validar con el equipo docente.
+// ---------------------------------------------------------------------
+export const contraindicaciones = {
+  titulo: "Contraindicaciones",
+  descripcion:
+    "Situaciones en las que un procedimiento o una intervención kinésica no debe realizarse, o solo puede hacerse con precaución.",
+  // Recuadro que explica la diferencia con las banderas rojas
+  diferencia: [
+    {
+      titulo: "Bandera roja",
+      icono: "🚩",
+      texto:
+        "Es un signo de alarma que aparece en el paciente (por ejemplo, una luxación o una TVP). Indica una posible complicación: se suspende la sesión y se deriva.",
+      href: "/banderas-rojas",
+    },
+    {
+      titulo: "Contraindicación",
+      icono: "⛔",
+      texto:
+        "Es una condición conocida que impide (absoluta) o limita (relativa) aplicar una técnica o procedimiento. Se evalúa antes de intervenir.",
+    },
+  ],
+  grupos: [
+    {
+      titulo: "De la artroplastía de cadera",
+      items: [
+        { texto: "Infección activa local o sistémica", tipo: "absoluta" },
+        { texto: "Condición clínica que impide la anestesia o la cirugía", tipo: "absoluta" },
+        { texto: "Insuficiencia grave de la musculatura abductora", tipo: "relativa" },
+        { texto: "Enfermedad vascular periférica grave", tipo: "relativa" },
+        { texto: "Artropatía neuropática (Charcot)", tipo: "relativa" },
+        { texto: "Obesidad mórbida", tipo: "relativa" },
+      ],
+    },
+    {
+      titulo: "De los agentes físicos",
+      items: [
+        { texto: "Diatermia (onda corta o microondas) sobre el implante metálico", tipo: "absoluta" },
+        { texto: "Calor o frío sobre la herida quirúrgica sin cicatrizar", tipo: "absoluta" },
+        { texto: "Ultrasonido sobre la zona del implante", tipo: "relativa", detalle: "Sobre todo con prótesis cementada" },
+        { texto: "Electroestimulación en zonas con alteración de la sensibilidad", tipo: "relativa" },
+      ],
+    },
+    {
+      titulo: "Del ejercicio y la movilización",
+      items: [
+        { texto: "Superar la carga de peso indicada por el cirujano", tipo: "absoluta" },
+        { texto: "Movimientos que violan las precauciones según el abordaje", tipo: "absoluta" },
+        { texto: "Hidroterapia con la herida abierta o sin cicatrizar", tipo: "absoluta" },
+        { texto: "Masaje directo sobre la cicatriz reciente", tipo: "relativa" },
+        { texto: "Ejercicio intenso con dolor agudo no controlado", tipo: "relativa" },
+      ],
+    },
+  ],
 };
 
 // ---------------------------------------------------------------------

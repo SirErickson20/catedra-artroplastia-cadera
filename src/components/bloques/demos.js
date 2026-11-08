@@ -1,13 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { banderasRojas, investigacion, videos } from "@/data/content";
+import { banderasRojas, contraindicaciones, investigacion, videos } from "@/data/content";
 
 /** Elige la demo animada según el id de la tarjeta */
 export function Demo({ tarjeta }) {
   switch (tarjeta.id) {
     case "banderas":
       return <DemoBanderas />;
+    case "contraindicaciones":
+      return <DemoContraindicaciones />;
     case "objetivos":
       return <DemoObjetivos items={tarjeta.items} />;
     case "fases":
@@ -50,6 +52,42 @@ function DemoBanderas() {
           </div>
         ))}
       </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------
+// Contraindicaciones: lista que resalta un ítem por vez (absoluta / relativa)
+// ---------------------------------------------------------------------
+function DemoContraindicaciones() {
+  // Dos ítems de cada grupo, para mostrar un poco de todo
+  const items = contraindicaciones.grupos.flatMap((g) => g.items.slice(0, 2));
+  const activo = useTick(1600) % items.length;
+  const absolutas = items.filter((it) => it.tipo === "absoluta").length;
+
+  return (
+    <div className="flex h-full flex-col px-7 py-6">
+      <div className="flex gap-2 text-xs font-semibold">
+        <span className="rounded-full bg-white/90 px-3 py-1 text-tinta">⛔ Absolutas · {absolutas}</span>
+        <span className="rounded-full border border-amber-300/30 bg-amber-400/10 px-3 py-1 text-amber-200">
+          ⚠️ Relativas · {items.length - absolutas}
+        </span>
+      </div>
+      <ul className="mt-5 space-y-2">
+        {items.map((it, i) => (
+          <li
+            key={it.texto}
+            className={`flex items-center gap-3 rounded-lg border px-3 py-2 text-sm transition-all duration-500 ${
+              i === activo
+                ? "scale-[1.02] border-cyan-300/50 bg-cyan-400/15 text-white shadow-[0_0_24px_rgba(34,211,238,0.25)]"
+                : "border-white/5 bg-white/[0.03] text-white/50"
+            }`}
+          >
+            <span aria-hidden="true">{it.tipo === "absoluta" ? "⛔" : "⚠️"}</span>
+            <span className="truncate">{it.texto}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
