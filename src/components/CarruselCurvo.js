@@ -78,14 +78,19 @@ export default function CarruselCurvo({ items }) {
             }`}
           >
             {item.imagen ? (
-              // La imagen ya trae el título del ejercicio
+              // La imagen ya trae el título incluido
               // eslint-disable-next-line @next/next/no-img-element
               <img src={item.imagen} alt="" className="h-full w-full object-cover" />
             ) : (
               <>
-                <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-brand-500 via-brand-700 to-tinta text-5xl sm:text-6xl">
-                  {item.icono}
-                </div>
+                {item.fondo ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={item.fondo} alt="" className="h-full w-full object-cover" />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-brand-500 via-brand-700 to-tinta text-5xl sm:text-6xl">
+                    {item.icono}
+                  </div>
+                )}
                 <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/80 to-transparent p-3 pt-8">
                   <p className="text-xs font-semibold uppercase tracking-wider text-white sm:text-sm">{item.titulo}</p>
                 </div>
