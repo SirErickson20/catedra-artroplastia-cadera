@@ -21,12 +21,12 @@ export const site = {
 // Menú superior: el orden de este array es el orden en la Navbar
 export const navLinks = [
   { href: "/", label: "Inicio" },
-  { href: "/investigacion", label: "Investigación" },
-  { href: "/objetivos", label: "Objetivos" },
+  { href: "/investigacion", label: "Investigación" }, // ⚠️ pendiente: en el audio dicen "banner"
   { href: "/evaluacion-kinesica", label: "Evaluación kinésica" },
-  { href: "/tratamiento", label: "Tratamiento" },
   { href: "/banderas-rojas", label: "Banderas Rojas" },
   { href: "/precauciones", label: "Precauciones" },
+  { href: "/objetivos", label: "Objetivos" },
+  { href: "/abordaje-kinesico", label: "Abordaje kinésico" },
   { href: "/videos", label: "Videos" },
 ];
 
@@ -123,10 +123,10 @@ export const inicio = {
       },
       {
         id: "fases",
-        titulo: "Tratamiento",
+        titulo: "Abordaje kinésico",
         icono: "📈",
         color: "#b45309",
-        href: "/tratamiento",
+        href: "/abordaje-kinesico",
         categorias: ["rehabilitacion"],
         descripcion: "Fases de rehabilitación, del preoperatorio al retorno a las actividades.",
         items: [
@@ -141,7 +141,7 @@ export const inicio = {
         titulo: "Indicación de ejercicio",
         icono: "🏋️",
         color: "#15803d",
-        href: "/tratamiento",
+        href: "/abordaje-kinesico",
         categorias: ["clinica", "rehabilitacion"],
         descripcion: "Ejercicios con su dosificación: series, repeticiones y pautas de seguridad.",
         // ⚠️ Dosificación orientativa: revisar con el equipo docente
@@ -502,11 +502,11 @@ export const evaluacion = {
 };
 
 // ---------------------------------------------------------------------
-//  TRATAMIENTO
+//  ABORDAJE KINÉSICO (tratamiento por fases)
 //  ⚠️ Borrador: revisar y validar con el equipo docente.
 // ---------------------------------------------------------------------
 export const tratamiento = {
-  titulo: "Tratamiento",
+  titulo: "Abordaje kinésico",
   descripcion:
     "Abordaje kinésico por fases, del preoperatorio al retorno a las actividades. Plazos orientativos: se progresa según criterios clínicos y las indicaciones del cirujano.",
   fases: [

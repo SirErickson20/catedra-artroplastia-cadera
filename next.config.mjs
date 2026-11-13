@@ -1,8 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // La sección "Contraindicaciones" pasó a llamarse "Precauciones"
+  // Direcciones viejas que redirigen a las secciones renombradas
   async redirects() {
-    return [{ source: "/contraindicaciones", destination: "/precauciones", permanent: true }];
+    return [
+      { source: "/contraindicaciones", destination: "/precauciones", permanent: true },
+      { source: "/tratamiento", destination: "/abordaje-kinesico", permanent: true },
+    ];
   },
 };
 

@@ -3,12 +3,12 @@ import PageHeader from "@/components/PageHeader";
 import SectionTitle from "@/components/SectionTitle";
 import { tratamiento } from "@/data/content";
 
-export const metadata = { title: "Tratamiento" };
+export const metadata = { title: "Abordaje kinésico" };
 
 const panel =
   "rounded-2xl border border-white/10 bg-white/[0.03] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]";
 
-export default function TratamientoPage() {
+export default function AbordajeKinesicoPage() {
   const { titulo, descripcion, fases, educacion } = tratamiento;
 
   return (
@@ -16,7 +16,7 @@ export default function TratamientoPage() {
       <PageHeader titulo={titulo} descripcion={descripcion} />
 
       <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
-        <SectionTitle titulo="Tratamiento por fases." subtitulo="Qué se hace en cada etapa y cuándo avanzar." />
+        <SectionTitle titulo="Abordaje por fases." subtitulo="Qué se hace en cada etapa y cuándo avanzar." />
 
         {/* Línea de tiempo de fases */}
         <ol className="relative mt-10 space-y-8">
