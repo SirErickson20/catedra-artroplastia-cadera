@@ -153,18 +153,17 @@ export const inicio = {
     botonSecundario: { href: "/videos", label: "Ver videos" },
     pieIzquierda: "Kinefisiatría Traumatológica y Reumatológica",
   },
-  // Tarjetas del carrusel curvo de la portada.
-  // fondo: foto de fondo de la tarjeta (dentro de /public). Si se deja vacío
-  // se muestra un degradado violeta con el ícono.
+  // Tarjetas del carrusel curvo de la portada (degradado violeta + ícono).
+  // icono: un emoji. iconoImagen: un ícono propio dentro de /public (reemplaza al emoji).
   carrusel: [
-    { titulo: "Patologías degenerativas de cadera", icono: "🦴", fondo: "" },
-    { titulo: "Artroplastia de cadera", icono: "", fondo: "/carrusel/artroplastia-cadera.jpg" },
-    { titulo: "Abordajes quirúrgicos", icono: "🩺", fondo: "" },
-    { titulo: "Marcha asistida", icono: "🚶", fondo: "" },
-    { titulo: "Fortalecimiento", icono: "💪", fondo: "" },
-    { titulo: "Banderas rojas", icono: "🚩", fondo: "" },
-    { titulo: "Transferencias", icono: "🪑", fondo: "" },
-    { titulo: "Educación al paciente", icono: "📋", fondo: "" },
+    { titulo: "Patologías degenerativas de cadera", icono: "🦴" },
+    { titulo: "Artroplastia de cadera", iconoImagen: "/iconos/artroplastia-cadera.svg" },
+    { titulo: "Abordajes quirúrgicos", icono: "🩺" },
+    { titulo: "Marcha asistida", icono: "🚶" },
+    { titulo: "Fortalecimiento", icono: "💪" },
+    { titulo: "Banderas rojas", icono: "🚩" },
+    { titulo: "Transferencias", icono: "🪑" },
+    { titulo: "Educación al paciente", icono: "📋" },
   ],
   bienvenida: {
     titulo: "Bienvenida",

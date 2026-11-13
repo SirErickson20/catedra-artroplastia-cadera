@@ -83,14 +83,15 @@ export default function CarruselCurvo({ items }) {
               <img src={item.imagen} alt="" className="h-full w-full object-cover" />
             ) : (
               <>
-                {item.fondo ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={item.fondo} alt="" className="h-full w-full object-cover" />
-                ) : (
-                  <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-brand-500 via-brand-700 to-tinta text-5xl sm:text-6xl">
-                    {item.icono}
-                  </div>
-                )}
+                <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-brand-500 via-brand-700 to-tinta text-5xl sm:text-6xl">
+                  {item.iconoImagen ? (
+                    // Ícono propio (mismo tamaño que los emojis)
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={item.iconoImagen} alt="" className="h-16 w-16 drop-shadow-lg sm:h-[5.5rem] sm:w-[5.5rem]" />
+                  ) : (
+                    item.icono
+                  )}
+                </div>
                 <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/80 to-transparent p-3 pt-8">
                   <p className="text-xs font-semibold uppercase tracking-wider text-white sm:text-sm">{item.titulo}</p>
                 </div>
