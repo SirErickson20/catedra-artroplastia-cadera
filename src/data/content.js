@@ -111,7 +111,7 @@ export const abordaje = {
       descripcion:
         "Paciente sentado a la orilla de la camilla con el muslo apoyado: realizar flexo-extensión suave de rodilla por efecto de la gravedad.",
       objetivo: "Mejora la nutrición del cartílago de la rodilla y modula la rigidez.",
-      video: "",
+      video: "/videos/pendulares-sedente.mp4",
       imagen: "/carrusel/pendulares-sedente.jpg",
     },
     {
@@ -537,37 +537,37 @@ export const objetivos = {
     items: [
       {
         icono: "🧊",
-        titulo: "Modulación del dolor y la inflamación",
+        titulo: "Disminuir el dolor y la inflamación",
         texto:
           "Reducir el dolor postoperatorio a valores EVA ≤ 3/10 en reposo y controlar el edema periarticular mediante agentes físicos (crioterapia y electroanalgesia).",
       },
       {
         icono: "⚡",
-        titulo: "Reversión de la inhibición muscular artrogénica",
+        titulo: "Contribuir a la reversión de la inhibición muscular artrogénica",
         texto:
           "Reactivar de forma temprana las unidades motoras del cuádriceps femoral, glúteo medio y glúteo mayor mediante contracciones isométricas de baja carga y estimulación neuromuscular.",
       },
       {
         icono: "📐",
-        titulo: "Restauración controlada del ROM",
+        titulo: "Restaurar el rango de movimiento",
         texto:
           "Alcanzar y mantener una flexión activa-asistida de cadera de hasta 90°, abducción suave y movilidad activa libre de rodilla y tobillo sin compensaciones lumbo-pélvicas.",
       },
       {
         icono: "🪑",
-        titulo: "Reeducación de transferencias y bipedestación",
+        titulo: "Reeducar transferencias y bipedestación",
         texto:
           "Lograr la independencia técnica para pasar de decúbito supino a sedente a la orilla de la cama, y de sedente a bípedo usando adecuadamente los apoyos.",
       },
       {
         icono: "🚶",
-        titulo: "Reeducación de la marcha con ayuda técnica",
+        titulo: "Reeducar la marcha con ayuda técnica",
         texto:
           "Restablecer la marcha tridáctila o bidáctila con andador de 4 puntos o bastones canadienses, con distancias progresivas (de 10 a 40+ metros) y carga parcial segura.",
       },
       {
         icono: "🏡",
-        titulo: "Educación en higiene articular y autogestión",
+        titulo: "Educar en higiene articular y autogestión",
         texto:
           "Capacitar al paciente y a su familia en la prevención de movimientos luxantes, el uso de adaptaciones del entorno y las pautas de ejercicios domiciliarios.",
       },
