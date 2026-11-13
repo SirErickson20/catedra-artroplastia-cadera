@@ -22,8 +22,11 @@ export const site = {
 export const navLinks = [
   { href: "/", label: "Inicio" },
   { href: "/investigacion", label: "Investigación" },
+  { href: "/objetivos", label: "Objetivos" },
+  { href: "/evaluacion-kinesica", label: "Evaluación kinésica" },
+  { href: "/tratamiento", label: "Tratamiento" },
   { href: "/banderas-rojas", label: "Banderas Rojas" },
-  { href: "/contraindicaciones", label: "Contraindicaciones" },
+  { href: "/precauciones", label: "Precauciones" },
   { href: "/videos", label: "Videos" },
 ];
 
@@ -85,20 +88,29 @@ export const inicio = {
         descripcion: "Reconocé los signos de alarma que obligan a suspender la sesión y derivar.",
       },
       {
-        id: "contraindicaciones",
-        titulo: "Contraindicaciones",
+        id: "precauciones",
+        titulo: "Precauciones",
         icono: "⛔",
         color: "#0e7490",
-        href: "/contraindicaciones",
+        href: "/precauciones",
         categorias: ["clinica"],
-        descripcion: "Qué no se debe hacer (absolutas) y qué requiere precaución (relativas).",
+        descripcion: "Movimientos a evitar, qué no se debe realizar y qué requiere precaución.",
+      },
+      {
+        id: "evaluacion",
+        titulo: "Evaluación kinésica",
+        icono: "📋",
+        color: "#db2777",
+        href: "/evaluacion-kinesica",
+        categorias: ["clinica"],
+        descripcion: "Dolor, rango de movimiento, fuerza, marcha y escalas funcionales.",
       },
       {
         id: "objetivos",
         titulo: "Objetivos",
         icono: "🎯",
         color: "#1d4ed8",
-        href: "/#resumen",
+        href: "/objetivos",
         categorias: ["rehabilitacion"],
         descripcion: "Las metas del tratamiento kinésico, del control del dolor a la independencia funcional.",
         items: [
@@ -111,12 +123,12 @@ export const inicio = {
       },
       {
         id: "fases",
-        titulo: "Fases de rehabilitación",
+        titulo: "Tratamiento",
         icono: "📈",
         color: "#b45309",
-        href: "/#resumen",
+        href: "/tratamiento",
         categorias: ["rehabilitacion"],
-        descripcion: "Del preoperatorio al retorno a las actividades, progresando por criterios clínicos.",
+        descripcion: "Fases de rehabilitación, del preoperatorio al retorno a las actividades.",
         items: [
           { nombre: "Preoperatoria", detalle: "Educación y preparación física" },
           { nombre: "Postoperatoria inmediata", detalle: "Analgesia, movilidad y transferencias" },
@@ -129,7 +141,7 @@ export const inicio = {
         titulo: "Indicación de ejercicio",
         icono: "🏋️",
         color: "#15803d",
-        href: "/videos",
+        href: "/tratamiento",
         categorias: ["clinica", "rehabilitacion"],
         descripcion: "Ejercicios con su dosificación: series, repeticiones y pautas de seguridad.",
         // ⚠️ Dosificación orientativa: revisar con el equipo docente
@@ -315,7 +327,35 @@ export const banderasRojas = {
       ],
     },
   ],
-  precauciones: {
+};
+
+// ---------------------------------------------------------------------
+//  PRECAUCIONES
+//  tipo: "absoluta" (no se realiza) | "relativa" (con precaución / caso a caso)
+//  ⚠️ Borrador: revisar y validar con el equipo docente.
+// ---------------------------------------------------------------------
+export const precauciones = {
+  titulo: "Precauciones",
+  descripcion:
+    "Movimientos a evitar, intervenciones que no deben realizarse y situaciones que requieren precaución en el paciente con artroplastía de cadera.",
+  // Recuadro que explica la diferencia con las banderas rojas
+  diferencia: [
+    {
+      titulo: "Bandera roja",
+      icono: "🚩",
+      texto:
+        "Es un signo de alarma que aparece en el paciente (por ejemplo, una luxación o una TVP). Indica una posible complicación: se suspende la sesión y se deriva.",
+      href: "/banderas-rojas",
+    },
+    {
+      titulo: "Precaución",
+      icono: "⛔",
+      texto:
+        "Es una condición conocida que impide (no realizar) o limita (con precaución) un movimiento, una técnica o un procedimiento. Se tiene en cuenta antes de intervenir.",
+    },
+  ],
+  // Precauciones de movimiento según el abordaje quirúrgico
+  movimiento: {
     titulo: "Precauciones de movimiento según abordaje",
     nota: "Las precauciones definitivas las indica el cirujano tratante.",
     items: [
@@ -329,33 +369,6 @@ export const banderasRojas = {
       },
     ],
   },
-};
-
-// ---------------------------------------------------------------------
-//  CONTRAINDICACIONES
-//  tipo: "absoluta" (no se realiza) | "relativa" (se evalúa caso a caso / precaución)
-//  ⚠️ Borrador: revisar y validar con el equipo docente.
-// ---------------------------------------------------------------------
-export const contraindicaciones = {
-  titulo: "Contraindicaciones",
-  descripcion:
-    "Situaciones en las que un procedimiento o una intervención kinésica no debe realizarse, o solo puede hacerse con precaución.",
-  // Recuadro que explica la diferencia con las banderas rojas
-  diferencia: [
-    {
-      titulo: "Bandera roja",
-      icono: "🚩",
-      texto:
-        "Es un signo de alarma que aparece en el paciente (por ejemplo, una luxación o una TVP). Indica una posible complicación: se suspende la sesión y se deriva.",
-      href: "/banderas-rojas",
-    },
-    {
-      titulo: "Contraindicación",
-      icono: "⛔",
-      texto:
-        "Es una condición conocida que impide (absoluta) o limita (relativa) aplicar una técnica o procedimiento. Se evalúa antes de intervenir.",
-    },
-  ],
   grupos: [
     {
       titulo: "De la artroplastía de cadera",
@@ -388,6 +401,174 @@ export const contraindicaciones = {
       ],
     },
   ],
+};
+
+// ---------------------------------------------------------------------
+//  OBJETIVOS
+//  ⚠️ Borrador: revisar y validar con el equipo docente.
+// ---------------------------------------------------------------------
+export const objetivos = {
+  titulo: "Objetivos",
+  descripcion: "Las metas del tratamiento kinésico en el paciente con artroplastía de cadera.",
+  generales: {
+    titulo: "Objetivos generales.",
+    subtitulo: "Lo que buscamos en todo el proceso de rehabilitación.",
+    items: [
+      { icono: "🧊", titulo: "Controlar el dolor y el edema", texto: "Favorecer la recuperación y la participación activa del paciente en el tratamiento." },
+      { icono: "🛡️", titulo: "Prevenir complicaciones", texto: "Trombosis venosa profunda, luxación, complicaciones respiratorias y úlceras por presión." },
+      { icono: "📐", titulo: "Recuperar el rango de movimiento", texto: "Siempre dentro de las precauciones indicadas según el abordaje quirúrgico." },
+      { icono: "💪", titulo: "Fortalecer la musculatura", texto: "Abductores, extensores de cadera, cuádriceps y musculatura del miembro inferior." },
+      { icono: "🚶", titulo: "Reeducar la marcha y el equilibrio", texto: "Progresar de la marcha asistida a la marcha independiente, sin claudicación." },
+      { icono: "🏡", titulo: "Lograr la independencia funcional", texto: "Autonomía en las actividades de la vida diaria y retorno a las actividades habituales." },
+    ],
+  },
+  porFase: {
+    titulo: "Objetivos por fase.",
+    subtitulo: "Plazos orientativos: la progresión depende de criterios clínicos.",
+    fases: [
+      {
+        nombre: "Preoperatoria",
+        periodo: "Antes de la cirugía",
+        objetivos: [
+          "Educar al paciente sobre la cirugía y las precauciones",
+          "Mejorar la fuerza y la condición física general",
+          "Entrenar el uso del andador y las transferencias",
+        ],
+      },
+      {
+        nombre: "Postoperatoria inmediata",
+        periodo: "Primeros días",
+        objetivos: [
+          "Controlar el dolor y el edema",
+          "Prevenir la TVP y las complicaciones respiratorias",
+          "Lograr transferencias seguras y marcha con andador según la carga indicada",
+        ],
+      },
+      {
+        nombre: "Intermedia",
+        periodo: "Semanas 2 a 6 aprox.",
+        objetivos: [
+          "Ampliar el rango de movimiento respetando las precauciones",
+          "Fortalecer de forma progresiva",
+          "Progresar la marcha (de andador a bastón)",
+        ],
+      },
+      {
+        nombre: "Avanzada",
+        periodo: "Desde la semana 6 aprox.",
+        objetivos: [
+          "Marcha sin asistencia y sin claudicación",
+          "Subir y bajar escaleras y realizar actividades funcionales",
+          "Retornar a actividades de bajo impacto",
+        ],
+      },
+    ],
+  },
+};
+
+// ---------------------------------------------------------------------
+//  EVALUACIÓN KINÉSICA
+//  ⚠️ Borrador: revisar y validar con el equipo docente.
+// ---------------------------------------------------------------------
+export const evaluacion = {
+  titulo: "Evaluación kinésica",
+  descripcion: "Qué evaluar en el paciente con artroplastía de cadera y con qué herramientas.",
+  componentes: {
+    titulo: "Componentes de la evaluación.",
+    subtitulo: "De la anamnesis a la funcionalidad.",
+    items: [
+      { icono: "📝", titulo: "Anamnesis", texto: "Antecedentes, tipo de prótesis y abordaje, carga de peso permitida, nivel funcional previo y expectativas del paciente." },
+      { icono: "🌡️", titulo: "Dolor", texto: "Intensidad (EVA o EVN), localización, características y comportamiento ante el movimiento." },
+      { icono: "👁️", titulo: "Inspección y palpación", texto: "Estado de la herida, edema, temperatura, coloración y búsqueda de signos de alarma." },
+      { icono: "📐", titulo: "Rango de movimiento", texto: "Goniometría de cadera y rodilla, siempre dentro de las precauciones del abordaje." },
+      { icono: "💪", titulo: "Fuerza muscular", texto: "Escala de Daniels (0 a 5) para abductores, extensores y flexores de cadera y cuádriceps." },
+      { icono: "📏", titulo: "Perimetría y longitud", texto: "Perímetros del miembro (edema) y discrepancia de longitud entre ambos miembros." },
+      { icono: "🚶", titulo: "Marcha y equilibrio", texto: "Patrón de marcha (signo de Trendelenburg, claudicación), uso de asistencia y equilibrio." },
+      { icono: "🏡", titulo: "Funcionalidad", texto: "Transferencias, actividades de la vida diaria y escalas funcionales." },
+    ],
+  },
+  escalas: {
+    titulo: "Escalas y pruebas.",
+    subtitulo: "Herramientas para medir y registrar la evolución.",
+    items: [
+      { nombre: "EVA / EVN", mide: "Intensidad del dolor", rango: "0 a 10" },
+      { nombre: "Escala de Daniels", mide: "Fuerza muscular", rango: "0 a 5" },
+      { nombre: "Harris Hip Score", mide: "Dolor, función, deformidad y movilidad de la cadera", rango: "0 a 100" },
+      { nombre: "WOMAC", mide: "Dolor, rigidez y función física", rango: "Cuestionario" },
+      { nombre: "Timed Up and Go (TUG)", mide: "Movilidad funcional y riesgo de caídas", rango: "Segundos" },
+      { nombre: "Escala de Berg", mide: "Equilibrio estático y dinámico", rango: "0 a 56" },
+    ],
+  },
+};
+
+// ---------------------------------------------------------------------
+//  TRATAMIENTO
+//  ⚠️ Borrador: revisar y validar con el equipo docente.
+// ---------------------------------------------------------------------
+export const tratamiento = {
+  titulo: "Tratamiento",
+  descripcion:
+    "Abordaje kinésico por fases, del preoperatorio al retorno a las actividades. Plazos orientativos: se progresa según criterios clínicos y las indicaciones del cirujano.",
+  fases: [
+    {
+      nombre: "Preoperatoria",
+      periodo: "Antes de la cirugía",
+      intervenciones: [
+        "Educación sobre la cirugía, las precauciones y la evolución esperada",
+        "Fortalecimiento de cadera y miembro inferior",
+        "Entrenamiento de la marcha con andador y de las transferencias",
+        "Ejercicios respiratorios",
+      ],
+      progresion: "Paciente informado y preparado para la cirugía.",
+    },
+    {
+      nombre: "Postoperatoria inmediata",
+      periodo: "Primeros días",
+      intervenciones: [
+        "Ejercicios respiratorios",
+        "Bombeo de tobillo e isométricos de cuádriceps y glúteos",
+        "Movilización activa asistida dentro de las precauciones",
+        "Crioterapia sobre el vendaje para el dolor y el edema",
+        "Transferencias y marcha con andador según la carga indicada",
+      ],
+      progresion: "Transferencias seguras y marcha independiente con andador.",
+    },
+    {
+      nombre: "Intermedia",
+      periodo: "Semanas 2 a 6 aprox.",
+      intervenciones: [
+        "Fortalecimiento progresivo de abductores y extensores de cadera",
+        "Ejercicios en cadena cinética cerrada",
+        "Movilidad activa dentro de las precauciones",
+        "Progresión de la marcha: de andador a bastón",
+        "Propiocepción y equilibrio",
+      ],
+      progresion: "Marcha con bastón sin dolor y con buen control de la pelvis.",
+    },
+    {
+      nombre: "Avanzada",
+      periodo: "Desde la semana 6 aprox.",
+      intervenciones: [
+        "Marcha sin asistencia y corrección de la claudicación",
+        "Subir y bajar escaleras",
+        "Fortalecimiento funcional y de resistencia",
+        "Bicicleta fija con asiento alto",
+        "Retorno a actividades de bajo impacto (caminar, natación)",
+      ],
+      progresion: "Independencia funcional y retorno a las actividades habituales.",
+    },
+  ],
+  educacion: {
+    titulo: "Educación al paciente.",
+    subtitulo: "Pautas para el hogar y la vida diaria.",
+    items: [
+      "Respetar las precauciones de movimiento indicadas",
+      "Usar alza-inodoro y sillas altas",
+      "No cruzar las piernas",
+      "Dormir con una almohada entre las piernas (abordaje posterior)",
+      "Reconocer las banderas rojas y consultar ante su aparición",
+    ],
+  },
 };
 
 // ---------------------------------------------------------------------

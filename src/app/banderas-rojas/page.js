@@ -1,3 +1,4 @@
+import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import SectionTitle from "@/components/SectionTitle";
 import { banderasRojas } from "@/data/content";
@@ -11,7 +12,7 @@ const estilosGravedad = {
 };
 
 export default function BanderasRojasPage() {
-  const { titulo, descripcion, aviso, alertas, precauciones } = banderasRojas;
+  const { titulo, descripcion, aviso, alertas } = banderasRojas;
 
   return (
     <>
@@ -51,29 +52,16 @@ export default function BanderasRojasPage() {
           })}
         </div>
 
-        {/* Precauciones según abordaje */}
-        <section className="mt-20">
-          <SectionTitle titulo={`${precauciones.titulo}.`} subtitulo={precauciones.nota} />
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
-            {precauciones.items.map((p) => (
-              <div
-                key={p.abordaje}
-                className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
-              >
-                <h3 className="font-semibold text-brand-100">Abordaje {p.abordaje}</h3>
-                <p className="mt-3 text-xs font-semibold uppercase tracking-widest text-white/40">Evitar</p>
-                <ul className="mt-2 space-y-1.5 text-sm text-white/75">
-                  {p.evitar.map((e) => (
-                    <li key={e} className="flex gap-2">
-                      <span className="text-red-400" aria-hidden="true">✕</span>
-                      {e}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </section>
+        {/* Enlace a Precauciones */}
+        <Link
+          href="/precauciones"
+          className="group mt-16 flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-cyan-400/40"
+        >
+          <SectionTitle titulo="Precauciones de movimiento." subtitulo="Qué evitar según el abordaje quirúrgico." />
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/20 bg-white/5 transition group-hover:translate-x-0.5 group-hover:bg-white/15">
+            →
+          </span>
+        </Link>
       </div>
     </>
   );

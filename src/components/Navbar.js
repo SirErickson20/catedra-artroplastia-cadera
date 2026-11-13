@@ -31,7 +31,7 @@ export default function Navbar() {
         {/* Botón menú móvil */}
         <button
           type="button"
-          className="flex items-center gap-2 rounded-md px-2 py-2 text-xs font-semibold uppercase tracking-widest text-white/80 hover:bg-white/10 md:hidden"
+          className="flex items-center gap-2 rounded-md px-2 py-2 text-xs font-semibold uppercase tracking-widest text-white/80 hover:bg-white/10 xl:hidden"
           aria-label="Abrir menú"
           aria-expanded={abierto}
           onClick={() => setAbierto(!abierto)}
@@ -47,12 +47,12 @@ export default function Navbar() {
         </button>
 
         {/* Menú escritorio */}
-        <ul className="hidden items-center gap-1 md:flex">
+        <ul className="hidden items-center gap-0.5 xl:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
-                className={`rounded-md px-3 py-2 text-xs font-semibold uppercase tracking-widest transition-colors ${
+                className={`whitespace-nowrap rounded-md px-2.5 py-2 text-[11px] font-semibold uppercase tracking-wider transition-colors ${
                   esActivo(link.href) ? "bg-white/10 text-white" : "text-white/60 hover:text-white"
                 }`}
               >
@@ -65,7 +65,7 @@ export default function Navbar() {
 
       {/* Menú móvil desplegable */}
       {abierto && (
-        <ul className="border-t border-white/10 bg-tinta px-4 py-2 md:hidden">
+        <ul className="border-t border-white/10 bg-tinta px-4 py-2 xl:hidden">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link

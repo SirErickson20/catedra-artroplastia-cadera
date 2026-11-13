@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { banderasRojas, contraindicaciones, investigacion, videos } from "@/data/content";
+import { banderasRojas, investigacion, precauciones, videos } from "@/data/content";
 import { iniciales } from "@/lib/iniciales";
 
 /** Elige la demo animada según el id de la tarjeta */
@@ -9,8 +9,10 @@ export function Demo({ tarjeta }) {
   switch (tarjeta.id) {
     case "banderas":
       return <DemoBanderas />;
-    case "contraindicaciones":
-      return <DemoContraindicaciones />;
+    case "precauciones":
+      return <DemoPrecauciones />;
+    case "evaluacion":
+      return <DemoEvaluacion />;
     case "objetivos":
       return <DemoObjetivos items={tarjeta.items} />;
     case "fases":
@@ -58,20 +60,24 @@ function DemoBanderas() {
 }
 
 // ---------------------------------------------------------------------
-// Contraindicaciones: lista que resalta un ítem por vez (absoluta / relativa)
+// Precauciones: lista que resalta un ítem por vez (no realizar / con precaución)
 // ---------------------------------------------------------------------
-function DemoContraindicaciones() {
-  // Dos ítems de cada grupo, para mostrar un poco de todo
-  const items = contraindicaciones.grupos.flatMap((g) => g.items.slice(0, 2));
+function DemoPrecauciones() {
+  // Movimientos a evitar (2 por abordaje) + algunas situaciones "con precaución"
+  const movimientos = precauciones.movimiento.items.flatMap((p) =>
+    p.evitar.slice(0, 2).map((texto) => ({ texto: `Evitar: ${texto.toLowerCase()}`, tipo: "absoluta" }))
+  );
+  const conPrecaucion = precauciones.grupos.flatMap((g) => g.items.filter((it) => it.tipo === "relativa").slice(0, 1)).slice(0, 2);
+  const items = [...movimientos, ...conPrecaucion];
   const activo = useTick(1600) % items.length;
   const absolutas = items.filter((it) => it.tipo === "absoluta").length;
 
   return (
     <div className="flex h-full flex-col px-7 py-6">
-      <div className="flex gap-2 text-xs font-semibold">
-        <span className="rounded-full bg-white/90 px-3 py-1 text-tinta">⛔ Absolutas · {absolutas}</span>
+      <div className="flex flex-wrap gap-2 text-xs font-semibold">
+        <span className="rounded-full bg-white/90 px-3 py-1 text-tinta">⛔ No realizar · {absolutas}</span>
         <span className="rounded-full border border-amber-300/30 bg-amber-400/10 px-3 py-1 text-amber-200">
-          ⚠️ Relativas · {items.length - absolutas}
+          ⚠️ Con precaución · {items.length - absolutas}
         </span>
       </div>
       <ul className="mt-5 space-y-2">
@@ -89,6 +95,79 @@ function DemoContraindicaciones() {
           </li>
         ))}
       </ul>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------
+// Evaluación kinésica: EVA, goniometría y fuerza que cambian como en
+// distintas sesiones de control
+// ---------------------------------------------------------------------
+const SESIONES = [
+  { sesion: "Día 1", eva: 7, angulo: 35, fuerza: 2 },
+  { sesion: "Semana 2", eva: 5, angulo: 55, fuerza: 3 },
+  { sesion: "Semana 6", eva: 3, angulo: 75, fuerza: 4 },
+  { sesion: "Semana 12", eva: 1, angulo: 90, fuerza: 5 },
+];
+
+function DemoEvaluacion() {
+  const s = SESIONES[useTick(2200) % SESIONES.length];
+  // Aguja del goniómetro: 0° sobre el brazo fijo (derecha), 90° hacia arriba
+  const rad = (s.angulo * Math.PI) / 180;
+  const x = 70 + 52 * Math.cos(rad);
+  const y = 70 - 52 * Math.sin(rad);
+
+  return (
+    <div className="flex h-full flex-col gap-5 px-7 py-6">
+      <span className="self-start rounded-full bg-pink-500/15 px-3 py-1 text-xs font-semibold text-pink-200 ring-1 ring-pink-400/30">
+        Control · {s.sesion}
+      </span>
+
+      {/* EVA */}
+      <div>
+        <div className="flex justify-between text-xs uppercase tracking-widest text-white/45">
+          <span>Dolor (EVA)</span>
+          <span className="font-bold tabular-nums text-white">{s.eva}/10</span>
+        </div>
+        <div className="relative mt-2 h-2.5 rounded-full bg-linear-to-r from-green-400 via-amber-400 to-red-500">
+          <span
+            className="absolute top-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white bg-tinta shadow-lg transition-[left] duration-700"
+            style={{ left: `${s.eva * 10}%` }}
+          />
+        </div>
+      </div>
+
+      <div className="flex items-end gap-6">
+        {/* Goniómetro */}
+        <div className="flex-1">
+          <p className="text-xs uppercase tracking-widest text-white/45">Flexión de cadera</p>
+          <svg viewBox="0 0 140 80" className="mt-1 w-full max-w-[160px]">
+            <path d="M18 70 A52 52 0 0 1 122 70" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="6" strokeLinecap="round" />
+            <line x1="70" y1="70" x2="122" y2="70" stroke="rgba(255,255,255,0.4)" strokeWidth="3" strokeLinecap="round" />
+            <line
+              x1="70" y1="70" x2={x} y2={y}
+              stroke="#f472b6" strokeWidth="4" strokeLinecap="round"
+              style={{ transition: "all 0.7s ease" }}
+            />
+            <circle cx="70" cy="70" r="5" fill="#fff" />
+          </svg>
+          <p className="text-2xl font-bold tabular-nums">{s.angulo}°</p>
+        </div>
+
+        {/* Daniels */}
+        <div>
+          <p className="text-xs uppercase tracking-widest text-white/45">Fuerza (Daniels)</p>
+          <div className="mt-2 flex gap-1.5">
+            {[1, 2, 3, 4, 5].map((n) => (
+              <span
+                key={n}
+                className={`h-8 w-3 rounded-full transition-colors duration-500 ${n <= s.fuerza ? "bg-pink-400" : "bg-white/10"}`}
+              />
+            ))}
+          </div>
+          <p className="mt-1 text-2xl font-bold tabular-nums">{s.fuerza}/5</p>
+        </div>
+      </div>
     </div>
   );
 }
