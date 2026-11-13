@@ -3,25 +3,27 @@
 //  Todos los textos, títulos, autores, alertas y videos viven acá.
 //  Editá este archivo y el sitio se actualiza solo; no hace falta
 //  tocar los componentes.
-//  ⚠️ El contenido clínico es un borrador base: debe ser revisado y
-//  validado por el equipo docente de la cátedra antes de publicarse.
+//  Fuente del contenido: Word "Tratamiento kinesiológico en artroplastia
+//  total de cadera: fase posquirúrgica inmediata" y banner del autor.
 // =====================================================================
 
 export const site = {
-  nombre: "Artroplastía de Cadera",
+  nombre: "Artroplastia de Cadera",
   catedra: "Cátedra: Kinefisiatría Traumatológica y Reumatológica",
-  tema: "Artroplastía de Cadera",
-  institucion: "Universidad — Carrera de Kinesiología y Fisiatría",
+  tema: "Artroplastia de Cadera",
+  subtema: "Abordaje Kinésico – Fase Aguda",
+  institucion:
+    "Universidad Católica de Santiago del Estero, Departamento Académico San Salvador de Jujuy — Carrera de Kinesiología y Fisiatría",
   anio: 2026,
   descripcion:
-    "Material educativo sobre la rehabilitación kinésica en pacientes con artroplastía de cadera.",
+    "Abordaje kinésico en la fase posquirúrgica inmediata (aguda) de la artroplastia total de cadera.",
   loaderTexto: "Cargando cátedra", // texto de la pantalla de carga
 };
 
 // Menú superior: el orden de este array es el orden en la Navbar
 export const navLinks = [
   { href: "/", label: "Inicio" },
-  { href: "/investigacion", label: "Investigación" }, // ⚠️ pendiente: en el audio dicen "banner"
+  { href: "/banner", label: "Banner" },
   { href: "/evaluacion-kinesica", label: "Evaluación kinésica" },
   { href: "/banderas-rojas", label: "Banderas Rojas" },
   { href: "/precauciones", label: "Precauciones" },
@@ -31,188 +33,7 @@ export const navLinks = [
 ];
 
 // ---------------------------------------------------------------------
-//  INICIO
-// ---------------------------------------------------------------------
-export const inicio = {
-  hero: {
-    etiqueta: "Kinefisiatría Traumatológica y Reumatológica",
-    // Cada elemento es una línea del título grande de la portada
-    tituloLineas: ["Artroplastía", "de cadera"],
-    subtitulo:
-      "Contenidos teóricos, signos de alarma, demostraciones prácticas e investigación para la rehabilitación kinésica.",
-    botonPrincipal: { href: "/banderas-rojas", label: "Ver banderas rojas" },
-    botonSecundario: { href: "/videos", label: "Ver demostraciones" },
-    pieIzquierda: "Cátedra · Kinesiología y Fisiatría",
-  },
-  // Tarjetas del carrusel curvo de la portada.
-  // imagen: ruta a una foto dentro de /public (ej: "/carrusel/marcha.jpg").
-  // Si se deja vacío se muestra un degradado violeta con el ícono.
-  carrusel: [
-    { titulo: "Artrosis de cadera", icono: "🦴", imagen: "" },
-    { titulo: "Prótesis total", icono: "⚙️", imagen: "" },
-    { titulo: "Abordajes quirúrgicos", icono: "🩺", imagen: "" },
-    { titulo: "Marcha asistida", icono: "🚶", imagen: "" },
-    { titulo: "Fortalecimiento", icono: "💪", imagen: "" },
-    { titulo: "Banderas rojas", icono: "🚩", imagen: "" },
-    { titulo: "Transferencias", icono: "🪑", imagen: "" },
-    { titulo: "Educación al paciente", icono: "📋", imagen: "" },
-  ],
-  bienvenida: {
-    titulo: "Bienvenida",
-    subtitulo: "Un espacio para aprender la rehabilitación paso a paso.",
-    parrafos: [
-      "La artroplastía de cadera es uno de los procedimientos ortopédicos más frecuentes y exitosos. Su resultado funcional depende en gran medida de una rehabilitación kinésica adecuada, segura y basada en la evidencia.",
-      "Este sitio fue pensado como material de apoyo para estudiantes de la cátedra, reuniendo de forma clara los conceptos clave del abordaje kinésico pre y postoperatorio.",
-    ],
-  },
-  // Bloques animados de la portada (estilo tarjetas con demo).
-  // categorias: pestañas para filtrar. Cada tarjeta indica en qué categorías aparece.
-  // color: color del brillo superior de la tarjeta (formato #RRGGBB).
-  bloques: {
-    titulo: "Todo lo que necesitás, en un solo lugar.",
-    subtitulo: "Explorá los ejes de la cátedra sin perderte en apuntes sueltos.",
-    categorias: [
-      { id: "todo", label: "Todo" },
-      { id: "clinica", label: "Clínica" },
-      { id: "rehabilitacion", label: "Rehabilitación" },
-      { id: "recursos", label: "Recursos" },
-    ],
-    tarjetas: [
-      {
-        id: "banderas",
-        titulo: "Banderas Rojas",
-        icono: "🚩",
-        color: "#b91c1c",
-        href: "/banderas-rojas",
-        categorias: ["clinica"],
-        descripcion: "Reconocé los signos de alarma que obligan a suspender la sesión y derivar.",
-      },
-      {
-        id: "precauciones",
-        titulo: "Precauciones",
-        icono: "⛔",
-        color: "#0e7490",
-        href: "/precauciones",
-        categorias: ["clinica"],
-        descripcion: "Movimientos a evitar, qué no se debe realizar y qué requiere precaución.",
-      },
-      {
-        id: "evaluacion",
-        titulo: "Evaluación kinésica",
-        icono: "📋",
-        color: "#db2777",
-        href: "/evaluacion-kinesica",
-        categorias: ["clinica"],
-        descripcion: "Dolor, rango de movimiento, fuerza, marcha y escalas funcionales.",
-      },
-      {
-        id: "objetivos",
-        titulo: "Objetivos",
-        icono: "🎯",
-        color: "#1d4ed8",
-        href: "/objetivos",
-        categorias: ["rehabilitacion"],
-        descripcion: "Las metas del tratamiento kinésico, del control del dolor a la independencia funcional.",
-        items: [
-          "Control del dolor y edema",
-          "Rango de movimiento",
-          "Fuerza muscular",
-          "Reeducación de la marcha",
-          "Independencia funcional",
-        ],
-      },
-      {
-        id: "fases",
-        titulo: "Abordaje kinésico",
-        icono: "📈",
-        color: "#b45309",
-        href: "/abordaje-kinesico",
-        categorias: ["rehabilitacion"],
-        descripcion: "Fases de rehabilitación, del preoperatorio al retorno a las actividades.",
-        items: [
-          { nombre: "Preoperatoria", detalle: "Educación y preparación física" },
-          { nombre: "Postoperatoria inmediata", detalle: "Analgesia, movilidad y transferencias" },
-          { nombre: "Intermedia", detalle: "Fuerza, rango y marcha" },
-          { nombre: "Avanzada", detalle: "Retorno a las actividades" },
-        ],
-      },
-      {
-        id: "ejercicio",
-        titulo: "Indicación de ejercicio",
-        icono: "🏋️",
-        color: "#15803d",
-        href: "/abordaje-kinesico",
-        categorias: ["clinica", "rehabilitacion"],
-        descripcion: "Ejercicios con su dosificación: series, repeticiones y pautas de seguridad.",
-        // ⚠️ Dosificación orientativa: revisar con el equipo docente
-        items: [
-          { nombre: "Bombeo de tobillo", series: 3, reps: 15, nota: "Prevención de TVP" },
-          { nombre: "Isométrico de cuádriceps", series: 3, reps: 10, nota: "Sostener 5 segundos" },
-          { nombre: "Puente glúteo", series: 3, reps: 10, nota: "Respetar precauciones del abordaje" },
-          { nombre: "Sentarse y pararse", series: 2, reps: 8, nota: "Silla alta, sin cruzar las piernas" },
-        ],
-      },
-      {
-        id: "videos",
-        titulo: "Videos",
-        icono: "🎬",
-        color: "#a21caf",
-        href: "/videos",
-        categorias: ["recursos"],
-        descripcion: "Demostraciones prácticas de ejercicios, transferencias y marcha.",
-      },
-      {
-        id: "investigacion",
-        titulo: "Investigación",
-        icono: "🔬",
-        color: "#6d28d9",
-        href: "/investigacion",
-        categorias: ["recursos"],
-        descripcion: "Conocé al equipo de autores, creadores e investigadores detrás del proyecto.",
-      },
-    ],
-  },
-  // Resumen general del tema (tarjetas informativas)
-  resumen: {
-    titulo: "Resumen general.",
-    subtitulo: "Lo esencial de la artroplastía de cadera.",
-    temas: [
-      {
-        titulo: "¿Qué es?",
-        texto:
-          "Procedimiento quirúrgico que reemplaza total o parcialmente la articulación coxofemoral por una prótesis, con el objetivo de aliviar el dolor y restaurar la función.",
-      },
-      {
-        titulo: "Indicaciones frecuentes",
-        texto:
-          "Artrosis avanzada, artritis reumatoidea, necrosis avascular de cabeza femoral y fracturas de cuello femoral, entre otras.",
-      },
-      {
-        titulo: "Tipos de prótesis",
-        texto:
-          "Artroplastía total (componente acetabular y femoral) o parcial/hemiartroplastía; fijación cementada, no cementada o híbrida.",
-      },
-      {
-        titulo: "Abordajes quirúrgicos",
-        texto:
-          "El abordaje (posterior, lateral, anterior) condiciona las precauciones de movimiento que deben respetarse en el postoperatorio.",
-      },
-      {
-        titulo: "Objetivos kinésicos",
-        texto:
-          "Control del dolor y edema, prevención de complicaciones, recuperación de rango de movimiento y fuerza, reeducación de la marcha e independencia funcional.",
-      },
-      {
-        titulo: "Fases de rehabilitación",
-        texto:
-          "Preoperatoria (educación), postoperatoria inmediata, intermedia y avanzada / retorno a actividades, progresando según criterios clínicos.",
-      },
-    ],
-  },
-};
-
-// ---------------------------------------------------------------------
-//  EQUIPO (se usa en Investigación y en el pie de página)
+//  EQUIPO (se usa en el Banner y en el pie de página)
 // ---------------------------------------------------------------------
 export const autor = {
   nombre: "Facundo Nahuel Llanes Severich",
@@ -228,33 +49,338 @@ export const desarrollador = {
 };
 
 // ---------------------------------------------------------------------
-//  INVESTIGACIÓN
+//  ABORDAJE KINÉSICO: ejercicio terapéutico de la fase aguda (semana 1)
+//  video: archivo dentro de /public/videos ("" = video próximamente)
+//  imagen: ilustración del ejercicio (recortada del banner)
 // ---------------------------------------------------------------------
-export const investigacion = {
-  titulo: "Investigación",
+export const abordaje = {
+  titulo: "Abordaje kinésico",
   descripcion:
-    "El autor, el desarrollo web y los docentes e investigadores que hicieron posible este material.",
-  grupos: [
+    "Módulo de ejercicio terapéutico (kinesiterapia) en la fase posquirúrgica inmediata: días 1 a 7.",
+  principio:
+    "Durante la primera semana, el ejercicio terapéutico debe guiarse por principios de contracción isométrica de baja carga, rangos protegidos y neuroplasticidad cruzada.",
+  ejercicios: [
     {
-      titulo: "Autor",
-      personas: [autor],
+      id: "bombeo-tobillo",
+      nombre: "Bombeo de tobillo",
+      nombreEn: "Ankle Pumps",
+      dosis: "3 × 20 · cada hora",
+      descripcion: "En decúbito supino, realizar dorsiflexión y plantiflexión activa máxima continua.",
+      objetivo: "Favorece el retorno venoso, activa la bomba muscular de la pantorrilla y previene la TVP.",
+      video: "/videos/bombeo-tobillo.mp4",
+      imagen: "/carrusel/bombeo-tobillo.jpg",
     },
     {
-      titulo: "Diseño y desarrollo web",
-      personas: [desarrollador],
+      id: "isometria-cuadriceps",
+      nombre: "Isometría de cuádriceps",
+      nombreEn: "Quad Sets",
+      dosis: "3 × 12 · sostener 5 a 10 s",
+      descripcion:
+        "En decúbito supino con la pierna extendida, presionar el hueco poplíteo contra la camilla manteniendo una contracción firme durante 5 a 10 segundos.",
+      objetivo: "Esencial para romper el bloqueo reflejo por inhibición muscular artrogénica (IMA).",
+      video: "/videos/isometria-cuadriceps.mp4",
+      imagen: "/carrusel/isometria-cuadriceps.jpg",
     },
     {
-      titulo: "Investigadores y docentes",
-      personas: [
-        { nombre: "Lic. Nombre Apellido", rol: "Docente a cargo", detalle: "Cátedra de Kinefisiatría Traumatológica y Reumatológica" },
-        { nombre: "Lic. Nombre Apellido", rol: "Investigador/a", detalle: "" },
-      ],
+      id: "isometria-gluteos",
+      nombre: "Isometría de glúteos",
+      nombreEn: "Glute Squeezes",
+      dosis: "3 × 15 · sostener 5 a 8 s",
+      descripcion:
+        "En decúbito supino, apretar ambos glúteos de forma simultánea sosteniendo la contracción 5 a 8 segundos.",
+      objetivo: "Activa el glúteo mayor y prepara la estabilidad posterior de la pelvis.",
+      video: "/videos/isometria-gluteos.mp4",
+      imagen: "/carrusel/isometria-gluteos.jpg",
+    },
+    {
+      id: "deslizamiento-talon",
+      nombre: "Deslizamiento de talón en supino",
+      nombreEn: "Heel Slides",
+      dosis: "3 × 10 a 12",
+      descripcion:
+        "Flexión activa-asistida de cadera y rodilla deslizando el talón sobre la superficie, hasta un máximo de 90° de flexión de cadera.",
+      objetivo: "Recupera el ROM sin estrés capsular.",
+      video: "/videos/deslizamiento-talon.mp4",
+      imagen: "/carrusel/deslizamiento-talon.jpg",
+    },
+    {
+      id: "pendulares-sedente",
+      nombre: "Movimientos pendulares en sedente",
+      nombreEn: "",
+      dosis: "3 × 15",
+      descripcion:
+        "Paciente sentado a la orilla de la camilla con el muslo apoyado: realizar flexo-extensión suave de rodilla por efecto de la gravedad.",
+      objetivo: "Mejora la nutrición del cartílago de la rodilla y modula la rigidez.",
+      video: "",
+      imagen: "/carrusel/pendulares-sedente.jpg",
+    },
+    {
+      id: "entrenamiento-cruzado",
+      nombre: "Entrenamiento cruzado contralateral",
+      nombreEn: "Cross-Training",
+      dosis: "3 × 10",
+      descripcion:
+        "Ejercicios de fuerza resistida en la extremidad SANA no operada (extensiones de rodilla y abducción).",
+      objetivo:
+        "Aprovecha el fenómeno neurofisiológico de cross-education para transferir activación de motoneuronas a la extremidad operada sin sobrecargarla.",
+      video: "/videos/entrenamiento-cruzado.mp4",
+      imagen: "/carrusel/entrenamiento-cruzado.jpg",
+    },
+    {
+      id: "sedente-a-bipedo",
+      nombre: "Reeducación de la transición sedente a bípedo",
+      nombreEn: "",
+      dosis: "",
+      descripcion:
+        "Desde una silla alta con brazos: inclinar el tronco recto, desplazar el pie sano ligeramente atrás e impulsarse con los brazos y el miembro sano, manteniendo la extremidad operada en ligera extensión / apoyo neutro.",
+      objetivo: "",
+      video: "/videos/sedente-a-bipedo.mp4",
+      imagen: "/carrusel/sedente-a-bipedo.jpg",
     },
   ],
-  bibliografia: {
-    titulo: "Bibliografía de referencia",
+};
+
+// ---------------------------------------------------------------------
+//  INICIO
+// ---------------------------------------------------------------------
+export const inicio = {
+  hero: {
+    etiqueta: "Abordaje kinésico · Fase aguda",
+    // Cada elemento es una línea del título grande de la portada
+    tituloLineas: ["Artroplastia", "de cadera"],
+    subtitulo: "“Una rehabilitación temprana, segura y bien guiada favorece la recuperación funcional.”",
+    botonPrincipal: { href: "/abordaje-kinesico", label: "Ver abordaje kinésico" },
+    botonSecundario: { href: "/videos", label: "Ver videos" },
+    pieIzquierda: "Kinefisiatría Traumatológica y Reumatológica",
+  },
+  // Tarjetas del carrusel curvo de la portada: los 7 ejercicios del banner
+  carrusel: abordaje.ejercicios.map((e) => ({ titulo: e.nombre, icono: "🏃", imagen: e.imagen })),
+  bienvenida: {
+    titulo: "Bienvenida",
+    subtitulo: "Abordaje kinésico en la fase posquirúrgica inmediata.",
+    parrafos: [
+      "La artroplastia total de cadera (ATC) consiste en el reemplazo quirúrgico de las superficies articulares coxofemorales deterioradas (cabeza femoral y acetábulo) por componentes protésicos modulares (vástago, cabeza, acetábulo y cotilo de fricción).",
+      "En esta propuesta, el foco se establece exclusivamente en la fase posquirúrgica inmediata: la etapa aguda, correspondiente a la primera semana de evolución postoperatoria (días 1 a 7).",
+    ],
+    destacado: {
+      titulo: "Eje central: la seguridad del paciente en la fase aguda",
+      texto:
+        "El principio rector en las primeras 24 a 72 horas es garantizar la seguridad del paciente. Antes de prescindir de asistencia o forzar la deambulación, el kinesiólogo debe validar criterios hemodinámicos y clínicos objetivos.",
+    },
+  },
+  // Bloques animados de la portada (estilo tarjetas con demo).
+  // categorias: pestañas para filtrar. Cada tarjeta indica en qué categorías aparece.
+  // color: color del brillo superior de la tarjeta (formato #RRGGBB).
+  bloques: {
+    titulo: "Todo lo que necesitás, en un solo lugar.",
+    subtitulo: "Explorá los ejes del abordaje sin perderte en apuntes sueltos.",
+    categorias: [
+      { id: "todo", label: "Todo" },
+      { id: "clinica", label: "Clínica" },
+      { id: "rehabilitacion", label: "Rehabilitación" },
+      { id: "recursos", label: "Recursos" },
+    ],
+    tarjetas: [
+      {
+        id: "evaluacion",
+        titulo: "Evaluación kinésica",
+        icono: "📋",
+        color: "#db2777",
+        href: "/evaluacion-kinesica",
+        categorias: ["clinica"],
+        descripcion: "Dolor, movilidad, fuerza, marcha y criterios de seguridad para movilizar.",
+      },
+      {
+        id: "banderas",
+        titulo: "Banderas Rojas",
+        icono: "🚩",
+        color: "#b91c1c",
+        href: "/banderas-rojas",
+        categorias: ["clinica"],
+        descripcion: "Signos de alarma específicos de la semana 1 que obligan a suspender y derivar.",
+      },
+      {
+        id: "precauciones",
+        titulo: "Precauciones",
+        icono: "⛔",
+        color: "#0e7490",
+        href: "/precauciones",
+        categorias: ["clinica"],
+        descripcion: "Movimientos prohibidos y posicionamiento según el abordaje quirúrgico.",
+      },
+      {
+        id: "objetivos",
+        titulo: "Objetivos",
+        icono: "🎯",
+        color: "#1d4ed8",
+        href: "/objetivos",
+        categorias: ["clinica"],
+        descripcion: "Las metas del tratamiento kinésico en la fase aguda.",
+        items: [
+          "Disminuir el dolor y el edema",
+          "Educar al paciente",
+          "Recuperar el ROM",
+          "Reeducar la marcha",
+          "Favorecer la independencia funcional",
+        ],
+      },
+      {
+        id: "ejercicio",
+        titulo: "Abordaje kinésico",
+        icono: "🏋️",
+        color: "#15803d",
+        href: "/abordaje-kinesico",
+        categorias: ["rehabilitacion"],
+        descripcion: "Ejercicio terapéutico de la semana 1 con su dosificación.",
+        items: [
+          { nombre: "Bombeo de tobillo", series: 3, reps: 20, nota: "Previene la TVP" },
+          { nombre: "Isometría de cuádriceps", series: 3, reps: 12, nota: "Sostener 5 a 10 segundos" },
+          { nombre: "Isometría de glúteos", series: 3, reps: 15, nota: "Sostener 5 a 8 segundos" },
+          { nombre: "Deslizamiento de talón", series: 3, reps: 10, nota: "Hasta 90° de flexión de cadera" },
+          { nombre: "Pendulares en sedente", series: 3, reps: 15, nota: "Por efecto de la gravedad" },
+          { nombre: "Entrenamiento cruzado", series: 3, reps: 10, nota: "En la pierna sana" },
+        ],
+      },
+      {
+        id: "fases",
+        titulo: "Fases de rehabilitación",
+        icono: "📈",
+        color: "#b45309",
+        href: "/fases-de-rehabilitacion",
+        categorias: ["rehabilitacion"],
+        descripcion: "Del preoperatorio al retorno a las actividades.",
+        items: [
+          { nombre: "Preoperatoria", detalle: "Educación y preparación física" },
+          { nombre: "Aguda (semana 1)", detalle: "Foco de este material" },
+          { nombre: "Intermedia", detalle: "Fuerza, rango y marcha" },
+          { nombre: "Avanzada", detalle: "Retorno a las actividades" },
+        ],
+      },
+      {
+        id: "fisioterapia",
+        titulo: "Fisioterapia aplicada",
+        icono: "⚡",
+        color: "#4338ca",
+        href: "/fisioterapia-aplicada",
+        categorias: ["rehabilitacion"],
+        descripcion: "Crioterapia, electroanalgesia y electroestimulación con sus parámetros.",
+      },
+      {
+        id: "esquema",
+        titulo: "Esquema de progresión día a día",
+        icono: "🗓️",
+        color: "#c2410c",
+        href: "/esquema-de-progresion",
+        categorias: ["rehabilitacion"],
+        descripcion: "Qué hacer en cada día de la primera semana y cuándo progresar.",
+      },
+      {
+        id: "videos",
+        titulo: "Videos",
+        icono: "🎬",
+        color: "#a21caf",
+        href: "/videos",
+        categorias: ["recursos"],
+        descripcion: "Cada ejercicio de la fase aguda, explicado en video.",
+      },
+      {
+        id: "bibliografia",
+        titulo: "Bibliografía",
+        icono: "📚",
+        color: "#64748b",
+        href: "/bibliografia",
+        categorias: ["recursos"],
+        descripcion: "Referencias bibliográficas que fundamentan el abordaje.",
+      },
+      {
+        id: "banner",
+        titulo: "Banner",
+        icono: "🖼️",
+        color: "#7e22ce",
+        href: "/banner",
+        categorias: ["recursos"],
+        descripcion: "La infografía completa del abordaje kinésico en la fase aguda.",
+      },
+    ],
+  },
+  // Resumen general del tema (tarjetas informativas)
+  resumen: {
+    titulo: "Resumen general.",
+    subtitulo: "Lo esencial de la artroplastia de cadera en la fase aguda.",
+    temas: [
+      {
+        titulo: "¿Qué es?",
+        texto:
+          "Es el reemplazo de las superficies articulares de la articulación coxofemoral por una prótesis, debido a patologías degenerativas que comprometen la función de la cadera.",
+      },
+      {
+        titulo: "Indicaciones",
+        texto:
+          "Coxartrosis avanzada primaria o secundaria, necrosis avascular de la cabeza femoral y fracturas mediales del cuello femoral en adultos mayores, cuando el manejo conservador falló.",
+      },
+      {
+        titulo: "Componentes protésicos",
+        texto: "Vástago, cabeza, acetábulo y cotilo de fricción: componentes modulares que reemplazan la cabeza femoral y el acetábulo.",
+      },
+      {
+        titulo: "Fase aguda",
+        texto: "Fase posquirúrgica inmediata: la primera semana de evolución postoperatoria (días 1 a 7). Es el foco de este material.",
+      },
+      {
+        titulo: "Seguridad del paciente",
+        texto:
+          "En las primeras 24 a 72 horas, antes de movilizar, se validan criterios hemodinámicos y clínicos objetivos.",
+      },
+      {
+        titulo: "Riesgos de un abordaje mal ejecutado",
+        texto:
+          "Luxación de la prótesis, caídas intrahospitalarias, hipotensión ortostática y exacerbación del derrame periarticular.",
+      },
+    ],
+  },
+};
+
+// ---------------------------------------------------------------------
+//  BANNER
+// ---------------------------------------------------------------------
+export const banner = {
+  titulo: "Banner",
+  descripcion: "Infografía del abordaje kinésico en la fase aguda de la artroplastia de cadera.",
+  imagen: "/banner.jpg",
+  alt: "Banner: Artroplastia de cadera, abordaje kinésico en fase aguda. Incluye qué es, evaluación kinésica, objetivos, precauciones y banderas rojas, los 7 ejercicios del abordaje y la bibliografía.",
+  creditos: [autor, desarrollador],
+};
+
+// ---------------------------------------------------------------------
+//  EVALUACIÓN KINÉSICA
+// ---------------------------------------------------------------------
+export const evaluacion = {
+  titulo: "Evaluación kinésica",
+  descripcion: "Qué evaluar y qué criterios de seguridad verificar antes de la movilización precoz.",
+  componentes: {
+    titulo: "Qué evaluar.",
+    subtitulo: "Los cuatro ejes de la evaluación en la fase aguda.",
     items: [
-      "Agregar aquí las referencias bibliográficas utilizadas (formato APA / Vancouver).",
+      { icono: "🌡️", titulo: "Dolor", texto: "Escala Visual Analógica (EVA) de 0 a 10." },
+      { icono: "📐", titulo: "Movilidad", texto: "Rango de movimiento (ROM) mediante goniometría." },
+      { icono: "💪", titulo: "Fuerza", texto: "Escala de Daniels de 0 a 5." },
+      { icono: "🚶", titulo: "Marcha", texto: "Apoyo, ayuda técnica y compensaciones." },
+    ],
+  },
+  seguridad: {
+    titulo: "Algoritmo de seguridad para la bipedestación temprana.",
+    subtitulo: "Antes de la primera bipedestación (día 1 o 2), todos los criterios son obligatorios.",
+    intro:
+      "Antes de iniciar la primera sesión de bipedestación y reeducación de la marcha, el kinesiólogo debe evaluar de manera obligatoria el expediente médico y el estado sistémico del paciente.",
+    filas: [
+      { parametro: "Nivel de hemoglobina", criterio: "≥ 10,0 g/dL (o autorización escrita del médico tratante si es < 10 g/dL)" },
+      { parametro: "Presión arterial", criterio: "Sistólica 100–140 mmHg / Diastólica 60–90 mmHg" },
+      { parametro: "Saturación de oxígeno", criterio: "SpO2 > 90 % a aire ambiente o con apoyo de cánula nasal" },
+      { parametro: "Dolor (EVA)", criterio: "EVA < 8/10 en reposo antes de iniciar la movilización" },
+      {
+        parametro: "Estado sistémico / herida",
+        criterio: "Sin sangrado activo en drenaje o apósito, sin náuseas ni vómitos en 2 h, paciente orientado en 4 esferas",
+      },
     ],
   },
 };
@@ -264,66 +390,38 @@ export const investigacion = {
 // ---------------------------------------------------------------------
 export const banderasRojas = {
   titulo: "Banderas Rojas",
-  descripcion:
-    "Signos y síntomas de alarma en el paciente con artroplastía de cadera que obligan a suspender la sesión y derivar de forma inmediata al equipo médico.",
+  descripcion: "Signos de alarma específicos de la semana 1 en el paciente con artroplastia de cadera.",
   aviso:
     "Ante la presencia de cualquiera de estos signos, suspender el tratamiento y derivar. Este material es educativo y no reemplaza el criterio clínico.",
   alertas: [
     {
-      titulo: "Luxación protésica",
-      gravedad: "urgente",
-      signos: [
-        "Dolor súbito e intenso en la cadera, a menudo tras un movimiento",
-        "Acortamiento del miembro y rotación anormal",
-        "Imposibilidad de cargar peso o mover la pierna",
-        "Sensación de “chasquido” o desencaje",
-      ],
-    },
-    {
       titulo: "Trombosis venosa profunda (TVP)",
       gravedad: "urgente",
       signos: [
-        "Dolor en pantorrilla o muslo",
-        "Edema unilateral, calor y enrojecimiento",
-        "Aumento del perímetro del miembro respecto al contralateral",
+        "Signo de Homans positivo",
+        "Aumento asimétrico del perímetro de la pantorrilla",
+        "Calor local",
+        "Edema con fóvea indurado",
+        "Dolor vivo al tacto",
       ],
     },
     {
-      titulo: "Tromboembolismo pulmonar (TEP)",
-      gravedad: "emergencia",
-      signos: [
-        "Disnea de aparición súbita",
-        "Dolor torácico, especialmente al inspirar",
-        "Taquicardia, taquipnea o desaturación",
-        "Tos con o sin hemoptisis",
-      ],
-    },
-    {
-      titulo: "Infección del sitio quirúrgico / periprotésica",
+      titulo: "Inestabilidad o desplazamiento protésico",
       gravedad: "urgente",
       signos: [
-        "Fiebre o escalofríos",
-        "Secreción, enrojecimiento o calor en la herida",
+        "Acortamiento repentino del miembro operado",
+        "Rotación externa fija del pie",
+        "Dolor agudo e inaguantable a la carga",
+      ],
+    },
+    {
+      titulo: "Infección periarticular temprana",
+      gravedad: "urgente",
+      signos: [
+        "Eritema progresivo en los bordes de la herida quirúrgica",
+        "Secreción purulenta o fétida",
         "Dehiscencia de la herida",
-        "Dolor creciente que no mejora con el reposo",
-      ],
-    },
-    {
-      titulo: "Fractura periprotésica",
-      gravedad: "urgente",
-      signos: [
-        "Dolor agudo tras caída o traumatismo",
-        "Deformidad o impotencia funcional",
-        "Imposibilidad de cargar peso",
-      ],
-    },
-    {
-      titulo: "Lesión neurológica",
-      gravedad: "derivar",
-      signos: [
-        "Debilidad para la dorsiflexión del pie (pie caído)",
-        "Parestesias o pérdida de sensibilidad en el miembro",
-        "Alteraciones nuevas que no estaban presentes antes de la cirugía",
+        "Picos febriles continuos (> 38 °C)",
       ],
     },
   ],
@@ -332,61 +430,71 @@ export const banderasRojas = {
 // ---------------------------------------------------------------------
 //  PRECAUCIONES
 //  tipo: "absoluta" (no se realiza) | "relativa" (con precaución / caso a caso)
-//  ⚠️ Borrador: revisar y validar con el equipo docente.
 // ---------------------------------------------------------------------
 export const precauciones = {
   titulo: "Precauciones",
   descripcion:
-    "Movimientos a evitar, intervenciones que no deben realizarse y situaciones que requieren precaución en el paciente con artroplastía de cadera.",
+    "El kinesiólogo debe adaptar la movilidad y la higiene postural según la vía de abordaje quirúrgico utilizada por el cirujano traumatólogo.",
   // Recuadro que explica la diferencia con las banderas rojas
   diferencia: [
     {
       titulo: "Bandera roja",
       icono: "🚩",
       texto:
-        "Es un signo de alarma que aparece en el paciente (por ejemplo, una luxación o una TVP). Indica una posible complicación: se suspende la sesión y se deriva.",
+        "Es un signo de alarma que aparece en el paciente (por ejemplo, una TVP o una luxación). Indica una posible complicación: se suspende la sesión y se deriva.",
       href: "/banderas-rojas",
     },
     {
       titulo: "Precaución",
       icono: "⛔",
       texto:
-        "Es una condición conocida que impide (no realizar) o limita (con precaución) un movimiento, una técnica o un procedimiento. Se tiene en cuenta antes de intervenir.",
+        "Es una condición conocida que impide o limita un movimiento, una técnica o un procedimiento. Se tiene en cuenta antes de intervenir.",
     },
   ],
-  // Precauciones de movimiento según el abordaje quirúrgico
+  // Precauciones según el abordaje quirúrgico
   movimiento: {
-    titulo: "Precauciones de movimiento según abordaje",
+    titulo: "Precauciones según el abordaje quirúrgico",
     nota: "Las precauciones definitivas las indica el cirujano tratante.",
     items: [
       {
-        abordaje: "Posterior / posterolateral",
-        evitar: ["Flexión de cadera mayor a 90°", "Aducción más allá de la línea media", "Rotación interna"],
+        abordaje: "Posterolateral (Kocher-Langenbeck)",
+        evitar: [
+          "Flexión de cadera mayor a 90°",
+          "Aducción cruzada sobre la línea media",
+          "Rotación interna más allá de la neutra",
+        ],
+        posicionamiento: [
+          "Cojín abductor entre las piernas en la cama",
+          "Silla y WC elevados",
+          "No cruzar las piernas",
+        ],
       },
       {
-        abordaje: "Anterior / anterolateral",
-        evitar: ["Extensión de cadera combinada con rotación externa", "Aducción con rotación externa"],
+        abordaje: "Anterior directo (DAA)",
+        evitar: [
+          "Hiperextensión de cadera mayor a 10°",
+          "Rotación externa más allá de la neutra",
+          "Extensión combinada con rotación externa",
+        ],
+        posicionamiento: ["Evitar pasos largos hacia atrás", "Cuidar la tensión de la cápsula anterior"],
       },
     ],
   },
   grupos: [
     {
-      titulo: "De la artroplastía de cadera",
+      titulo: "De la artroplastia de cadera",
       items: [
         { texto: "Infección activa local o sistémica", tipo: "absoluta" },
         { texto: "Condición clínica que impide la anestesia o la cirugía", tipo: "absoluta" },
         { texto: "Insuficiencia grave de la musculatura abductora", tipo: "relativa" },
         { texto: "Enfermedad vascular periférica grave", tipo: "relativa" },
-        { texto: "Artropatía neuropática (Charcot)", tipo: "relativa" },
-        { texto: "Obesidad mórbida", tipo: "relativa" },
       ],
     },
     {
       titulo: "De los agentes físicos",
       items: [
         { texto: "Diatermia (onda corta o microondas) sobre el implante metálico", tipo: "absoluta" },
-        { texto: "Calor o frío sobre la herida quirúrgica sin cicatrizar", tipo: "absoluta" },
-        { texto: "Ultrasonido sobre la zona del implante", tipo: "relativa", detalle: "Sobre todo con prótesis cementada" },
+        { texto: "Calor o frío directo sobre la herida quirúrgica sin cicatrizar", tipo: "absoluta" },
         { texto: "Electroestimulación en zonas con alteración de la sensibilidad", tipo: "relativa" },
       ],
     },
@@ -395,8 +503,7 @@ export const precauciones = {
       items: [
         { texto: "Superar la carga de peso indicada por el cirujano", tipo: "absoluta" },
         { texto: "Movimientos que violan las precauciones según el abordaje", tipo: "absoluta" },
-        { texto: "Hidroterapia con la herida abierta o sin cicatrizar", tipo: "absoluta" },
-        { texto: "Masaje directo sobre la cicatriz reciente", tipo: "relativa" },
+        { texto: "Movilizar sin cumplir el algoritmo de seguridad", tipo: "absoluta" },
         { texto: "Ejercicio intenso con dolor agudo no controlado", tipo: "relativa" },
       ],
     },
@@ -405,111 +512,169 @@ export const precauciones = {
 
 // ---------------------------------------------------------------------
 //  OBJETIVOS
-//  ⚠️ Borrador: revisar y validar con el equipo docente.
 // ---------------------------------------------------------------------
 export const objetivos = {
   titulo: "Objetivos",
-  descripcion: "Las metas del tratamiento kinésico en el paciente con artroplastía de cadera.",
-  generales: {
-    titulo: "Objetivos generales.",
-    subtitulo: "Lo que buscamos en todo el proceso de rehabilitación.",
-    items: [
-      { icono: "🧊", titulo: "Controlar el dolor y el edema", texto: "Favorecer la recuperación y la participación activa del paciente en el tratamiento." },
-      { icono: "🛡️", titulo: "Prevenir complicaciones", texto: "Trombosis venosa profunda, luxación, complicaciones respiratorias y úlceras por presión." },
-      { icono: "📐", titulo: "Recuperar el rango de movimiento", texto: "Siempre dentro de las precauciones indicadas según el abordaje quirúrgico." },
-      { icono: "💪", titulo: "Fortalecer la musculatura", texto: "Abductores, extensores de cadera, cuádriceps y musculatura del miembro inferior." },
-      { icono: "🚶", titulo: "Reeducar la marcha y el equilibrio", texto: "Progresar de la marcha asistida a la marcha independiente, sin claudicación." },
-      { icono: "🏡", titulo: "Lograr la independencia funcional", texto: "Autonomía en las actividades de la vida diaria y retorno a las actividades habituales." },
-    ],
+  descripcion: "Objetivos del tratamiento kinésico en la fase aguda (semana 1).",
+  general: {
+    titulo: "Objetivo general de la fase aguda",
+    texto:
+      "Optimizar la recuperación tisular primaria y la seguridad hemodinámica del paciente en los primeros 7 días posquirúrgicos, modulando el dolor y el edema postoperatorio, revirtiendo la inhibición muscular artrogénica (IMA) mediante activación neuromuscular precoz, y logrando la independencia en transferencias básicas y deambulación asistida con marcha simétrica y carga parcial autorizada.",
   },
-  porFase: {
-    titulo: "Objetivos por fase.",
-    subtitulo: "Plazos orientativos: la progresión depende de criterios clínicos.",
-    fases: [
+  especificos: {
+    titulo: "Objetivos específicos.",
+    subtitulo: "Días 1 a 7 postoperatorios.",
+    items: [
       {
-        nombre: "Preoperatoria",
-        periodo: "Antes de la cirugía",
-        objetivos: [
-          "Educar al paciente sobre la cirugía y las precauciones",
-          "Mejorar la fuerza y la condición física general",
-          "Entrenar el uso del andador y las transferencias",
-        ],
+        icono: "🧊",
+        titulo: "Modulación del dolor y la inflamación",
+        texto:
+          "Reducir el dolor postoperatorio a valores EVA ≤ 3/10 en reposo y controlar el edema periarticular mediante agentes físicos (crioterapia y electroanalgesia).",
       },
       {
-        nombre: "Postoperatoria inmediata",
-        periodo: "Primeros días",
-        objetivos: [
-          "Controlar el dolor y el edema",
-          "Prevenir la TVP y las complicaciones respiratorias",
-          "Lograr transferencias seguras y marcha con andador según la carga indicada",
-        ],
+        icono: "⚡",
+        titulo: "Reversión de la inhibición muscular artrogénica",
+        texto:
+          "Reactivar de forma temprana las unidades motoras del cuádriceps femoral, glúteo medio y glúteo mayor mediante contracciones isométricas de baja carga y estimulación neuromuscular.",
       },
       {
-        nombre: "Intermedia",
-        periodo: "Semanas 2 a 6 aprox.",
-        objetivos: [
-          "Ampliar el rango de movimiento respetando las precauciones",
-          "Fortalecer de forma progresiva",
-          "Progresar la marcha (de andador a bastón)",
-        ],
+        icono: "📐",
+        titulo: "Restauración controlada del ROM",
+        texto:
+          "Alcanzar y mantener una flexión activa-asistida de cadera de hasta 90°, abducción suave y movilidad activa libre de rodilla y tobillo sin compensaciones lumbo-pélvicas.",
       },
       {
-        nombre: "Avanzada",
-        periodo: "Desde la semana 6 aprox.",
-        objetivos: [
-          "Marcha sin asistencia y sin claudicación",
-          "Subir y bajar escaleras y realizar actividades funcionales",
-          "Retornar a actividades de bajo impacto",
-        ],
+        icono: "🪑",
+        titulo: "Reeducación de transferencias y bipedestación",
+        texto:
+          "Lograr la independencia técnica para pasar de decúbito supino a sedente a la orilla de la cama, y de sedente a bípedo usando adecuadamente los apoyos.",
+      },
+      {
+        icono: "🚶",
+        titulo: "Reeducación de la marcha con ayuda técnica",
+        texto:
+          "Restablecer la marcha tridáctila o bidáctila con andador de 4 puntos o bastones canadienses, con distancias progresivas (de 10 a 40+ metros) y carga parcial segura.",
+      },
+      {
+        icono: "🏡",
+        titulo: "Educación en higiene articular y autogestión",
+        texto:
+          "Capacitar al paciente y a su familia en la prevención de movimientos luxantes, el uso de adaptaciones del entorno y las pautas de ejercicios domiciliarios.",
       },
     ],
   },
 };
 
 // ---------------------------------------------------------------------
-//  EVALUACIÓN KINÉSICA
-//  ⚠️ Borrador: revisar y validar con el equipo docente.
+//  FISIOTERAPIA APLICADA (agentes físicos)
 // ---------------------------------------------------------------------
-export const evaluacion = {
-  titulo: "Evaluación kinésica",
-  descripcion: "Qué evaluar en el paciente con artroplastía de cadera y con qué herramientas.",
-  componentes: {
-    titulo: "Componentes de la evaluación.",
-    subtitulo: "De la anamnesis a la funcionalidad.",
-    items: [
-      { icono: "📝", titulo: "Anamnesis", texto: "Antecedentes, tipo de prótesis y abordaje, carga de peso permitida, nivel funcional previo y expectativas del paciente." },
-      { icono: "🌡️", titulo: "Dolor", texto: "Intensidad (EVA o EVN), localización, características y comportamiento ante el movimiento." },
-      { icono: "👁️", titulo: "Inspección y palpación", texto: "Estado de la herida, edema, temperatura, coloración y búsqueda de signos de alarma." },
-      { icono: "📐", titulo: "Rango de movimiento", texto: "Goniometría de cadera y rodilla, siempre dentro de las precauciones del abordaje." },
-      { icono: "💪", titulo: "Fuerza muscular", texto: "Escala de Daniels (0 a 5) para abductores, extensores y flexores de cadera y cuádriceps." },
-      { icono: "📏", titulo: "Perimetría y longitud", texto: "Perímetros del miembro (edema) y discrepancia de longitud entre ambos miembros." },
-      { icono: "🚶", titulo: "Marcha y equilibrio", texto: "Patrón de marcha (signo de Trendelenburg, claudicación), uso de asistencia y equilibrio." },
-      { icono: "🏡", titulo: "Funcionalidad", texto: "Transferencias, actividades de la vida diaria y escalas funcionales." },
-    ],
-  },
-  escalas: {
-    titulo: "Escalas y pruebas.",
-    subtitulo: "Herramientas para medir y registrar la evolución.",
-    items: [
-      { nombre: "EVA / EVN", mide: "Intensidad del dolor", rango: "0 a 10" },
-      { nombre: "Escala de Daniels", mide: "Fuerza muscular", rango: "0 a 5" },
-      { nombre: "Harris Hip Score", mide: "Dolor, función, deformidad y movilidad de la cadera", rango: "0 a 100" },
-      { nombre: "WOMAC", mide: "Dolor, rigidez y función física", rango: "Cuestionario" },
-      { nombre: "Timed Up and Go (TUG)", mide: "Movilidad funcional y riesgo de caídas", rango: "Segundos" },
-      { nombre: "Escala de Berg", mide: "Equilibrio estático y dinámico", rango: "0 a 56" },
-    ],
-  },
-};
-
-// ---------------------------------------------------------------------
-//  ABORDAJE KINÉSICO (tratamiento por fases)
-//  ⚠️ Borrador: revisar y validar con el equipo docente.
-// ---------------------------------------------------------------------
-export const tratamiento = {
-  titulo: "Abordaje kinésico",
+export const fisioterapia = {
+  titulo: "Fisioterapia aplicada",
   descripcion:
-    "Abordaje kinésico por fases, del preoperatorio al retorno a las actividades. Plazos orientativos: se progresa según criterios clínicos y las indicaciones del cirujano.",
-  fases: [
+    "Módulo de agentes físicos en la fase aguda: subordinado a objetivos analgésicos y de facilitación neuromuscular para potenciar la kinesiterapia.",
+  agentes: [
+    {
+      nombre: "Crioterapia",
+      detalle: "Ice packs / compresión fría",
+      icono: "❄️",
+      dosis: "Bolsa de hielo o compresión fría a 10–15 °C durante 15 a 20 minutos.",
+      efecto: "Vasoconstricción, disminución de la conducción nerviosa nociceptiva y reducción del hematoma posquirúrgico.",
+      momento: "Al finalizar cada sesión de ejercicio (3 a 4 veces por día).",
+    },
+    {
+      nombre: "Electroanalgesia",
+      detalle: "TENS / interferenciales",
+      icono: "〰️",
+      dosis: "TENS convencional o corrientes interferenciales (80–120 Hz, 15 a 20 min).",
+      efecto: "Mecanismo de compuerta (gate control) a nivel medular L3-L5; reduce el espasmo antiálgico periarticular.",
+      momento: "Antes de la kinesiterapia, o en reposo si la EVA es ≥ 6/10.",
+    },
+    {
+      nombre: "Electroestimulación",
+      detalle: "NMES / corrientes rusas",
+      icono: "⚡",
+      dosis: "Frecuencia 50–80 Hz, ciclo 10 s ON / 30 s OFF, intensidad hasta contracción visible.",
+      efecto: "Supera el bloqueo medular inhibitorio de la IMA en cuádriceps y glúteo medio, reclutando fibras tipo II.",
+      momento: "Combinada con isometría activa en la sesión kinésica.",
+    },
+  ],
+};
+
+// ---------------------------------------------------------------------
+//  ESQUEMA DE PROGRESIÓN Y ACTUACIÓN DÍA A DÍA
+// ---------------------------------------------------------------------
+export const esquema = {
+  titulo: "Esquema de progresión y actuación día a día",
+  descripcion:
+    "Cronología de la intervención kinésica durante la estancia intrahospitalaria y la primera semana de alta (días 1 a 7).",
+  periodos: [
+    {
+      periodo: "Día 1",
+      etiqueta: "Posoperatorio inmediato",
+      acciones: [
+        "Verificación del algoritmo de seguridad (Hb, PA, SpO2, EVA)",
+        "Crioterapia local 20 min",
+        "Ejercicios en cama: bombeo de tobillo, isometría de cuádriceps y glúteo",
+        "Transferencia a sedente a la orilla de la cama",
+        "Bipedestación asistida si el paciente cumple los criterios hemodinámicos",
+      ],
+      meta: "Tolerancia a la sedestación durante 15 a 30 min sin mareo ni hipotensión.",
+    },
+    {
+      periodo: "Día 2",
+      etiqueta: "Posoperatorio temprano",
+      acciones: [
+        "Repetición del módulo en cama + deslizamientos de talón protegidos (≤ 90° de flexión)",
+        "Inicio del entrenamiento cruzado en la pierna sana",
+        "TENS / interferenciales si persiste el dolor periarticular",
+        "Reeducación de la marcha con andador dentro de la habitación (10 a 20 metros)",
+      ],
+      meta: "Marcha intrahabitacional con apoyo parcial simétrico y EVA ≤ 4/10.",
+    },
+    {
+      periodo: "Día 3",
+      etiqueta: "Pre-alta",
+      acciones: [
+        "Transición a bipedestación con menor asistencia manual",
+        "Marcha por el pasillo (30 a 40+ metros con andador o bastones)",
+        "Puentes glúteos asistidos con apoyo prioritario en la pierna sana",
+        "Práctica de transferencias a silla alta y WC adaptado",
+      ],
+      meta: "Independencia en transferencias y deambulación mayor a 40 metros.",
+    },
+    {
+      periodo: "Días 4 y 5",
+      etiqueta: "Alta domiciliaria",
+      acciones: [
+        "Inicio del protocolo domiciliario (2 a 3 sesiones por día de la pauta aprendida)",
+        "Bicicleta estática sin resistencia, con asiento elevado para evitar flexión > 90° (si se dispone)",
+        "Reeducación de escaleras (3 escalones): subir con el miembro sano, bajar con el operado",
+        "Refuerzo de las precauciones de luxación en las AVD",
+      ],
+      meta: "Subir y bajar 3 escalones de forma segura con baranda y bastón.",
+    },
+    {
+      periodo: "Días 6 y 7",
+      etiqueta: "Consolidación",
+      acciones: [
+        "Progresión de la caminata domiciliaria a 50–80 metros discontinuos",
+        "Isometría con mantención de 10 segundos",
+        "Manejo e inspección de la cicatriz (control de edema y signos de infección)",
+        "Evaluación de la preparación para la fase II (subaguda)",
+      ],
+      meta: "EVA ≤ 3/10 en reposo, deambulación segura y control neuromuscular de rodilla.",
+    },
+  ],
+};
+
+// ---------------------------------------------------------------------
+//  FASES DE REHABILITACIÓN (visión general)
+// ---------------------------------------------------------------------
+export const fases = {
+  titulo: "Fases de rehabilitación",
+  descripcion:
+    "Visión general del proceso de rehabilitación. Este material se centra en la fase aguda (semana 1). Plazos orientativos: se progresa según criterios clínicos y las indicaciones del cirujano.",
+  lista: [
     {
       nombre: "Preoperatoria",
       periodo: "Antes de la cirugía",
@@ -517,28 +682,30 @@ export const tratamiento = {
         "Educación sobre la cirugía, las precauciones y la evolución esperada",
         "Fortalecimiento de cadera y miembro inferior",
         "Entrenamiento de la marcha con andador y de las transferencias",
-        "Ejercicios respiratorios",
       ],
       progresion: "Paciente informado y preparado para la cirugía.",
     },
     {
-      nombre: "Postoperatoria inmediata",
-      periodo: "Primeros días",
+      nombre: "Aguda: posquirúrgica inmediata",
+      periodo: "Días 1 a 7",
+      foco: true,
       intervenciones: [
-        "Ejercicios respiratorios",
-        "Bombeo de tobillo e isométricos de cuádriceps y glúteos",
-        "Movilización activa asistida dentro de las precauciones",
-        "Crioterapia sobre el vendaje para el dolor y el edema",
-        "Transferencias y marcha con andador según la carga indicada",
+        "Algoritmo de seguridad antes de movilizar",
+        "Ejercicio terapéutico: isometría de baja carga y rangos protegidos",
+        "Fisioterapia: crioterapia, electroanalgesia y electroestimulación",
+        "Transferencias y marcha con ayuda técnica y carga parcial",
       ],
-      progresion: "Transferencias seguras y marcha independiente con andador.",
+      progresion: "EVA ≤ 3/10 en reposo, deambulación segura y control neuromuscular de rodilla.",
+      enlaces: [
+        { href: "/abordaje-kinesico", label: "Abordaje kinésico" },
+        { href: "/esquema-de-progresion", label: "Esquema día a día" },
+      ],
     },
     {
-      nombre: "Intermedia",
+      nombre: "Subaguda / intermedia",
       periodo: "Semanas 2 a 6 aprox.",
       intervenciones: [
         "Fortalecimiento progresivo de abductores y extensores de cadera",
-        "Ejercicios en cadena cinética cerrada",
         "Movilidad activa dentro de las precauciones",
         "Progresión de la marcha: de andador a bastón",
         "Propiocepción y equilibrio",
@@ -550,63 +717,45 @@ export const tratamiento = {
       periodo: "Desde la semana 6 aprox.",
       intervenciones: [
         "Marcha sin asistencia y corrección de la claudicación",
-        "Subir y bajar escaleras",
-        "Fortalecimiento funcional y de resistencia",
-        "Bicicleta fija con asiento alto",
-        "Retorno a actividades de bajo impacto (caminar, natación)",
+        "Escaleras y actividades funcionales",
+        "Retorno a actividades de bajo impacto",
       ],
       progresion: "Independencia funcional y retorno a las actividades habituales.",
     },
   ],
-  educacion: {
-    titulo: "Educación al paciente.",
-    subtitulo: "Pautas para el hogar y la vida diaria.",
-    items: [
-      "Respetar las precauciones de movimiento indicadas",
-      "Usar alza-inodoro y sillas altas",
-      "No cruzar las piernas",
-      "Dormir con una almohada entre las piernas (abordaje posterior)",
-      "Reconocer las banderas rojas y consultar ante su aparición",
-    ],
-  },
 };
 
 // ---------------------------------------------------------------------
-//  VIDEOS / DEMOSTRACIONES
-//  youtubeId: es lo que va después de "v=" en la URL de YouTube.
-//    Ej: https://www.youtube.com/watch?v=ABC123xyz  ->  youtubeId: "ABC123xyz"
-//  Si se deja vacío, se muestra un recuadro "Video próximamente".
+//  BIBLIOGRAFÍA
+//  El texto entre *asteriscos* se muestra en cursiva.
+// ---------------------------------------------------------------------
+export const bibliografia = {
+  titulo: "Bibliografía",
+  descripcion: "Referencias bibliográficas seleccionadas.",
+  items: [
+    "Sara, L. K., & Lewis, C. L. (2023). Rehabilitation phases, precautions, and mobility goals following total hip arthroplasty. *HSS Journal®: The Musculoskeletal Journal of Hospital for Special Surgery*.",
+    "Nickel, K., Lobos, E., Jacque, T., & Barra, F. (2026). *Protocolo de intervención basado en ejercicio terapéutico en pacientes post artroplastia total cadera en etapa 1 y 2* [Tesis de maestría, Universidad Andrés Bello]. Santiago, Chile.",
+    "Honfi, A. E., Acosta, L. R., & Lescano, K. I. (2024). Protocolos de rehabilitación para pacientes con artroplastia total de cadera, Corrientes-Argentina y Araranguá-Brasil en los años 2022 al 2024. *Revista de Investigación Científica y Tecnológica*, *8*(2), 183–193.",
+    "Brito-de León, M. E., Beristain-Meza, S. M., Gutiérrez-Medina, N., Medina-Elizalde, A. P., & Lara-López, T. L. (2023). Programa de rehabilitación multimodal para pacientes intervenidos de artroplastia de cadera y rodilla.",
+    "Pilatuña López, K. M., & Dillon Cacuango, M. E. (2026). Impacto del ejercicio terapéutico en adultos mayores con coxartrosis post-artroplastia de cadera. *Revista Social Fronteriza*, *6*(4), e1199.",
+  ],
+};
+
+// ---------------------------------------------------------------------
+//  VIDEOS: uno por cada ejercicio del abordaje kinésico (fase aguda)
 // ---------------------------------------------------------------------
 export const videos = {
-  titulo: "Videos y Demostraciones",
-  descripcion:
-    "Demostraciones prácticas para acompañar los contenidos teóricos de la cátedra.",
-  lista: [
-    {
-      titulo: "Ejercicios del postoperatorio inmediato",
-      descripcion: "Bombeo de tobillo, isométricos de cuádriceps y glúteos, deslizamientos de talón.",
-      youtubeId: "",
-      categoria: "Fase inicial",
-    },
-    {
-      titulo: "Transferencias seguras",
-      descripcion: "Cama–silla, sedestación–bipedestación y uso del inodoro respetando precauciones.",
-      youtubeId: "",
-      categoria: "AVD",
-    },
-    {
-      titulo: "Reeducación de la marcha",
-      descripcion: "Marcha con andador y bastones, subida y bajada de escaleras.",
-      youtubeId: "",
-      categoria: "Marcha",
-    },
-    {
-      titulo: "Fortalecimiento progresivo",
-      descripcion: "Ejercicios de abductores, extensores de cadera y control neuromuscular.",
-      youtubeId: "",
-      categoria: "Fase intermedia",
-    },
-  ],
+  titulo: "Videos",
+  descripcion: "Cada ejercicio del abordaje kinésico en la fase aguda, con su descripción y su video.",
+  lista: abordaje.ejercicios.map((e) => ({
+    id: e.id,
+    titulo: e.nombre,
+    descripcion: e.descripcion,
+    dosis: e.dosis,
+    archivo: e.video,
+    imagen: e.imagen,
+    categoria: "Fase aguda",
+  })),
 };
 
 export const footer = {

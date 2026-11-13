@@ -6,51 +6,30 @@ import { objetivos } from "@/data/content";
 export const metadata = { title: "Objetivos" };
 
 export default function ObjetivosPage() {
-  const { titulo, descripcion, generales, porFase } = objetivos;
+  const { titulo, descripcion, general, especificos } = objetivos;
 
   return (
     <>
       <PageHeader titulo={titulo} descripcion={descripcion} />
 
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        {/* Objetivos generales */}
-        <section>
-          <SectionTitle titulo={generales.titulo} subtitulo={generales.subtitulo} />
+        {/* Objetivo general */}
+        <section className="relative overflow-hidden rounded-[24px] border border-blue-300/25 bg-white/[0.03] p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] sm:p-10">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_70%_at_50%_0%,rgba(29,78,216,0.35),transparent_70%)]" />
+          <p className="relative text-xs font-semibold uppercase tracking-widest text-blue-200/80">🎯 {general.titulo}</p>
+          <p className="relative mt-4 text-lg leading-relaxed text-white/85 sm:text-xl">{general.texto}</p>
+        </section>
+
+        {/* Objetivos específicos */}
+        <section className="mt-20">
+          <SectionTitle titulo={especificos.titulo} subtitulo={especificos.subtitulo} />
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {generales.items.map((o) => (
+            {especificos.items.map((o) => (
               <Card key={o.titulo} titulo={o.titulo} icono={o.icono}>
                 {o.texto}
               </Card>
             ))}
           </div>
-        </section>
-
-        {/* Objetivos por fase */}
-        <section className="mt-20">
-          <SectionTitle titulo={porFase.titulo} subtitulo={porFase.subtitulo} />
-          <ol className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {porFase.fases.map((f, i) => (
-              <li
-                key={f.nombre}
-                className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
-              >
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(100%_55%_at_50%_0%,rgba(29,78,216,0.3),transparent_70%)]" />
-                <span className="relative flex h-9 w-9 items-center justify-center rounded-full border border-blue-300/40 bg-blue-500/20 text-sm font-bold text-blue-100">
-                  {i + 1}
-                </span>
-                <h3 className="relative mt-4 font-semibold text-white">{f.nombre}</h3>
-                <p className="relative text-xs uppercase tracking-widest text-white/40">{f.periodo}</p>
-                <ul className="relative mt-4 space-y-2 text-sm text-white/70">
-                  {f.objetivos.map((o) => (
-                    <li key={o} className="flex gap-2">
-                      <span className="text-blue-300" aria-hidden="true">✓</span>
-                      {o}
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            ))}
-          </ol>
         </section>
       </div>
     </>

@@ -4,7 +4,8 @@ const nextConfig = {
   async redirects() {
     return [
       { source: "/contraindicaciones", destination: "/precauciones", permanent: true },
-      { source: "/tratamiento", destination: "/abordaje-kinesico", permanent: true },
+      { source: "/tratamiento", destination: "/fases-de-rehabilitacion", permanent: true },
+      { source: "/investigacion", destination: "/banner", permanent: true },
     ];
   },
 };

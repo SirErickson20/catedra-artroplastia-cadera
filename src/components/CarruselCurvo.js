@@ -73,19 +73,24 @@ export default function CarruselCurvo({ items }) {
           <div
             key={i}
             ref={(n) => (tarjetas.current[i] = n)}
-            className="absolute left-1/2 top-1/2 aspect-[3/4] overflow-hidden rounded-md opacity-0 shadow-2xl shadow-black/60"
+            className={`absolute left-1/2 top-1/2 overflow-hidden rounded-lg opacity-0 shadow-2xl shadow-black/60 ring-1 ring-white/10 ${
+              item.imagen ? "aspect-square" : "aspect-[3/4]"
+            }`}
           >
             {item.imagen ? (
+              // La imagen ya trae el título del ejercicio
               // eslint-disable-next-line @next/next/no-img-element
               <img src={item.imagen} alt="" className="h-full w-full object-cover" />
             ) : (
-              <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-brand-500 via-brand-700 to-tinta text-5xl sm:text-6xl">
-                {item.icono}
-              </div>
+              <>
+                <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-brand-500 via-brand-700 to-tinta text-5xl sm:text-6xl">
+                  {item.icono}
+                </div>
+                <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/80 to-transparent p-3 pt-8">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-white sm:text-sm">{item.titulo}</p>
+                </div>
+              </>
             )}
-            <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/80 to-transparent p-3 pt-8">
-              <p className="text-xs font-semibold uppercase tracking-wider text-white sm:text-sm">{item.titulo}</p>
-            </div>
           </div>
         ))}
       </div>

@@ -1,76 +1,76 @@
 import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import SectionTitle from "@/components/SectionTitle";
-import { tratamiento } from "@/data/content";
+import { abordaje } from "@/data/content";
 
 export const metadata = { title: "Abordaje kinésico" };
 
-const panel =
-  "rounded-2xl border border-white/10 bg-white/[0.03] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]";
-
-export default function AbordajeKinesicoPage() {
-  const { titulo, descripcion, fases, educacion } = tratamiento;
+export default function AbordajePage() {
+  const { titulo, descripcion, principio, ejercicios } = abordaje;
 
   return (
     <>
       <PageHeader titulo={titulo} descripcion={descripcion} />
 
-      <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
-        <SectionTitle titulo="Abordaje por fases." subtitulo="Qué se hace en cada etapa y cuándo avanzar." />
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        {/* Principio rector */}
+        <div className="rounded-2xl border border-green-300/25 bg-green-400/[0.06] p-6 text-white/80">
+          <p className="text-xs font-semibold uppercase tracking-widest text-green-200/80">Principio de la semana 1</p>
+          <p className="mt-2 leading-relaxed">{principio}</p>
+        </div>
 
-        {/* Línea de tiempo de fases */}
-        <ol className="relative mt-10 space-y-8">
-          <span className="absolute bottom-6 left-[19px] top-6 w-px bg-linear-to-b from-amber-300/60 via-amber-300/20 to-transparent" aria-hidden="true" />
-          {fases.map((f, i) => (
-            <li key={f.nombre} className="relative flex gap-5">
-              <span className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-amber-300 bg-amber-400 font-bold text-black shadow-[0_0_20px_rgba(251,191,36,0.45)]">
-                {i + 1}
-              </span>
-              <div className={`${panel} relative flex-1 overflow-hidden p-6`}>
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(100%_50%_at_50%_0%,rgba(180,83,9,0.25),transparent_70%)]" />
-                <div className="relative flex flex-wrap items-center gap-x-3 gap-y-1">
-                  <h3 className="text-lg font-semibold text-white">{f.nombre}</h3>
-                  <span className="rounded-full bg-amber-400/15 px-2.5 py-0.5 text-xs font-semibold text-amber-200 ring-1 ring-amber-300/30">
-                    {f.periodo}
-                  </span>
+        <section className="mt-16">
+          <SectionTitle titulo="Ejercicio terapéutico." subtitulo="Los 7 ejercicios de la fase aguda." />
+
+          <ol className="mt-8 grid gap-6 md:grid-cols-2">
+            {ejercicios.map((e, i) => (
+              <li
+                key={e.id}
+                id={e.id}
+                className="flex scroll-mt-24 flex-col overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.03] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] sm:flex-row"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={e.imagen} alt={`Ilustración: ${e.nombre}`} className="aspect-square w-full object-cover sm:w-44 sm:shrink-0" />
+                <div className="flex flex-1 flex-col p-5">
+                  <div className="flex items-start gap-3">
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-green-400 text-sm font-bold text-black">
+                      {i + 1}
+                    </span>
+                    <div>
+                      <h3 className="font-semibold leading-tight text-white">{e.nombre}</h3>
+                      {e.nombreEn && <p className="text-xs text-white/40">{e.nombreEn}</p>}
+                    </div>
+                  </div>
+                  {e.dosis && (
+                    <span className="mt-3 self-start rounded-full border border-green-300/30 bg-green-400/10 px-3 py-0.5 text-xs font-semibold text-green-200">
+                      {e.dosis}
+                    </span>
+                  )}
+                  <p className="mt-3 text-sm leading-relaxed text-white/70">{e.descripcion}</p>
+                  {e.objetivo && <p className="mt-2 text-sm leading-relaxed text-white/45">{e.objetivo}</p>}
+                  <Link
+                    href={`/videos#${e.id}`}
+                    className="mt-4 self-start text-sm font-medium text-brand-100 transition hover:text-white"
+                  >
+                    {e.video ? "▶ Ver video" : "Video próximamente"} →
+                  </Link>
                 </div>
-                <ul className="relative mt-4 space-y-2 text-sm text-white/75">
-                  {f.intervenciones.map((it) => (
-                    <li key={it} className="flex gap-2">
-                      <span className="text-amber-300" aria-hidden="true">•</span>
-                      {it}
-                    </li>
-                  ))}
-                </ul>
-                <p className="relative mt-5 rounded-lg border border-white/10 bg-black/20 px-4 py-2.5 text-sm text-white/60">
-                  <span className="font-semibold text-white/80">Para avanzar: </span>
-                  {f.progresion}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ol>
-
-        {/* Educación al paciente */}
-        <section className="mt-20">
-          <SectionTitle titulo={educacion.titulo} subtitulo={educacion.subtitulo} />
-          <ul className={`${panel} mt-8 grid gap-3 p-6 sm:grid-cols-2`}>
-            {educacion.items.map((e) => (
-              <li key={e} className="flex gap-2 text-sm text-white/75">
-                <span className="text-green-300" aria-hidden="true">✓</span>
-                {e}
               </li>
             ))}
-          </ul>
+          </ol>
         </section>
 
-        {/* Enlaces relacionados */}
-        <div className="mt-10 grid gap-4 sm:grid-cols-2">
+        {/* Más del abordaje */}
+        <div className="mt-12 grid gap-4 sm:grid-cols-2">
           {[
-            { href: "/videos", titulo: "Ver demostraciones", texto: "Ejercicios, transferencias y marcha en video." },
-            { href: "/precauciones", titulo: "Ver precauciones", texto: "Movimientos a evitar según el abordaje." },
+            { href: "/fisioterapia-aplicada", titulo: "Fisioterapia aplicada", texto: "Agentes físicos, parámetros y momento de aplicación." },
+            { href: "/esquema-de-progresion", titulo: "Esquema día a día", texto: "Qué hacer del día 1 al 7 y cuándo progresar." },
           ].map((l) => (
-            <Link key={l.href} href={l.href} className={`${panel} group flex items-center justify-between gap-4 p-5 transition hover:border-white/25`}>
+            <Link
+              key={l.href}
+              href={l.href}
+              className="group flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition hover:border-white/25"
+            >
               <span>
                 <span className="block font-semibold text-white">{l.titulo}</span>
                 <span className="text-sm text-white/50">{l.texto}</span>
@@ -79,10 +79,6 @@ export default function AbordajeKinesicoPage() {
             </Link>
           ))}
         </div>
-
-        <p className="mt-10 text-xs text-white/35">
-          Material educativo. Los plazos son orientativos y la progresión depende del criterio clínico y de las indicaciones del cirujano.
-        </p>
       </div>
     </>
   );

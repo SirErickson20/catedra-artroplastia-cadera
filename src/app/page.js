@@ -46,7 +46,7 @@ export default function InicioPage() {
           </div>
 
           <div className="mx-auto max-w-xl text-center">
-            <p className="text-sm uppercase tracking-wider text-white/70">{hero.subtitulo}</p>
+            <p className="text-lg italic leading-snug text-white/80 sm:text-xl">{hero.subtitulo}</p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               <Link
                 href={hero.botonPrincipal.href}
@@ -74,7 +74,7 @@ export default function InicioPage() {
         </div>
       </section>
 
-      {/* Bloques animados (Banderas rojas, Objetivos, Fases, Ejercicio, Videos, Investigación) */}
+      {/* Bloques animados: Clínica, Rehabilitación y Recursos */}
       <Bloques datos={bloques} />
 
       {/* Bienvenida */}
@@ -85,6 +85,12 @@ export default function InicioPage() {
           {bienvenida.parrafos.map((p, i) => (
             <p key={i} className="mt-5 leading-relaxed text-white/60">{p}</p>
           ))}
+          {bienvenida.destacado && (
+            <div className="mt-10 rounded-2xl border border-brand-500/40 bg-brand-500/10 p-6 text-left shadow-[0_0_40px_-10px_rgba(130,38,209,0.5)]">
+              <p className="text-xs font-semibold uppercase tracking-widest text-brand-100">🛡️ {bienvenida.destacado.titulo}</p>
+              <p className="mt-2 leading-relaxed text-white/80">{bienvenida.destacado.texto}</p>
+            </div>
+          )}
         </div>
       </section>
 

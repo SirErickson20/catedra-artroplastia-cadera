@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Demo } from "./demos";
 
 /**
@@ -14,6 +14,37 @@ export default function Bloques({ datos }) {
   const visibles = tarjetas.filter(
     (t) => categoria === "todo" || t.categorias.includes(categoria)
   );
+
+  // Flechas: se habilitan según haya más tarjetas hacia cada lado
+  const fila = useRef(null);
+  const [puedeIzq, setPuedeIzq] = useState(false);
+  const [puedeDer, setPuedeDer] = useState(true);
+
+  const actualizarFlechas = useCallback(() => {
+    const el = fila.current;
+    if (!el) return;
+    setPuedeIzq(el.scrollLeft > 4);
+    setPuedeDer(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
+  }, []);
+
+  // Al cambiar de pestaña vuelve al principio
+  useEffect(() => {
+    if (fila.current) fila.current.scrollLeft = 0;
+    actualizarFlechas();
+  }, [categoria, actualizarFlechas]);
+
+  useEffect(() => {
+    window.addEventListener("resize", actualizarFlechas);
+    return () => window.removeEventListener("resize", actualizarFlechas);
+  }, [actualizarFlechas]);
+
+  const mover = (sentido) => {
+    const el = fila.current;
+    if (!el) return;
+    const tarjeta = el.querySelector("a");
+    const paso = tarjeta ? tarjeta.offsetWidth + 24 : el.clientWidth * 0.8;
+    el.scrollBy({ left: sentido * paso, behavior: "smooth" });
+  };
 
   return (
     <section className="bg-tinta py-20 text-white [overflow-anchor:none]">
@@ -48,13 +79,42 @@ export default function Bloques({ datos }) {
       </div>
 
       {/* Fila de tarjetas con scroll horizontal */}
-      <div className="mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-6 pl-4 scroll-pl-4 [scrollbar-width:none] sm:pl-6 sm:scroll-pl-6 lg:snap-none lg:pl-[max(1.5rem,calc((100%_-_80rem)/2_+_1.5rem))] [&::-webkit-scrollbar]:hidden">
+      <div
+        ref={fila}
+        onScroll={actualizarFlechas}
+        className="mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-6 pl-4 scroll-pl-4 [scrollbar-width:none] sm:pl-6 sm:scroll-pl-6 lg:snap-none lg:pl-[max(1.5rem,calc((100%_-_80rem)/2_+_1.5rem))] [&::-webkit-scrollbar]:hidden"
+      >
         {visibles.map((t, i) => (
           <Tarjeta key={`${categoria}-${t.id}`} tarjeta={t} indice={i} />
         ))}
         <div className="w-px shrink-0" aria-hidden="true" />
       </div>
+
+      {/* Flechas para recorrer las tarjetas (útiles con mouse) */}
+      <div className="mx-auto mt-4 flex max-w-7xl items-center justify-end gap-3 px-4 sm:px-6">
+        <span className="mr-auto text-sm text-white/40">
+          {visibles.length} {visibles.length === 1 ? "sección" : "secciones"}
+        </span>
+        <Flecha direccion="izquierda" activa={puedeIzq} onClick={() => mover(-1)} />
+        <Flecha direccion="derecha" activa={puedeDer} onClick={() => mover(1)} />
+      </div>
     </section>
+  );
+}
+
+function Flecha({ direccion, activa, onClick }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={!activa}
+      aria-label={direccion === "izquierda" ? "Ver tarjetas anteriores" : "Ver más tarjetas"}
+      className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white transition hover:bg-white/15 disabled:cursor-default disabled:opacity-30 disabled:hover:bg-white/5"
+    >
+      <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d={direccion === "izquierda" ? "M15 6l-6 6 6 6" : "M9 6l6 6-6 6"} />
+      </svg>
+    </button>
   );
 }
 

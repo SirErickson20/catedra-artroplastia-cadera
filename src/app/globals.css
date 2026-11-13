@@ -56,3 +56,12 @@ html {
 body {
   @apply bg-tinta text-white antialiased;
 }
+
+/* Animaciones de las tarjetas de Fisioterapia (onda) y Banner (paneo) */
+@keyframes onda {
+  to { transform: translateX(-50%); }
+}
+@keyframes paneo {
+  from { background-position: 50% 0%; }
+  to { background-position: 50% 100%; }
+}

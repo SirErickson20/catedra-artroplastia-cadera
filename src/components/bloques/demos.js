@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { banderasRojas, investigacion, precauciones, videos } from "@/data/content";
-import { iniciales } from "@/lib/iniciales";
+import { banderasRojas, banner, bibliografia, esquema, fisioterapia, precauciones, videos } from "@/data/content";
 
 /** Elige la demo animada según el id de la tarjeta */
 export function Demo({ tarjeta }) {
@@ -21,8 +20,14 @@ export function Demo({ tarjeta }) {
       return <DemoEjercicio items={tarjeta.items} />;
     case "videos":
       return <DemoVideos />;
-    case "investigacion":
-      return <DemoInvestigacion />;
+    case "fisioterapia":
+      return <DemoFisioterapia />;
+    case "esquema":
+      return <DemoEsquema />;
+    case "bibliografia":
+      return <DemoBibliografia />;
+    case "banner":
+      return <DemoBanner />;
     default:
       return null;
   }
@@ -313,10 +318,10 @@ function DemoVideos() {
         key={i}
         className="relative flex aspect-video w-full max-w-[300px] items-center justify-center overflow-hidden rounded-lg bg-linear-to-br from-fuchsia-500/60 via-brand-700 to-tinta shadow-2xl shadow-black/60 ring-1 ring-white/15 motion-safe:animate-aparecer"
       >
-        {v.youtubeId ? (
+        {v.imagen || v.youtubeId ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            src={`https://i.ytimg.com/vi/${v.youtubeId}/hqdefault.jpg`}
+            src={v.imagen || `https://i.ytimg.com/vi/${v.youtubeId}/hqdefault.jpg`}
             alt=""
             className="absolute inset-0 h-full w-full object-cover"
           />
@@ -354,56 +359,137 @@ function DemoVideos() {
 }
 
 // ---------------------------------------------------------------------
-// Investigación: integrantes orbitando
+// Fisioterapia aplicada: rota entre los agentes físicos con su onda
 // ---------------------------------------------------------------------
-const ESTRELLAS = [
-  [12, 18], [80, 10], [65, 30], [22, 70], [88, 62], [45, 88], [8, 48], [70, 85], [35, 12], [92, 35],
-];
-
-
-function DemoInvestigacion() {
-  const personas = investigacion.grupos.flatMap((g) => g.personas);
-  const radio = 115;
+function DemoFisioterapia() {
+  const agentes = fisioterapia.agentes;
+  const i = useTick(2600) % agentes.length;
+  const a = agentes[i];
 
   return (
-    <div className="relative flex h-full items-center justify-center">
-      {ESTRELLAS.map(([x, y], i) => (
-        <span
-          key={i}
-          className="absolute h-0.5 w-0.5 rounded-full bg-white/50"
-          style={{ left: `${x}%`, top: `${y}%` }}
-        />
-      ))}
+    <div className="flex h-full flex-col px-7 py-6">
+      <div className="flex gap-2">
+        {agentes.map((ag, j) => (
+          <span
+            key={ag.nombre}
+            className={`h-1.5 flex-1 rounded-full transition-colors duration-500 ${j === i ? "bg-indigo-300" : "bg-white/10"}`}
+          />
+        ))}
+      </div>
 
+      <div key={i} className="mt-6 motion-safe:animate-aparecer">
+        <div className="flex items-center gap-3">
+          <span className="text-4xl">{a.icono}</span>
+          <div>
+            <p className="text-xl font-semibold">{a.nombre}</p>
+            <p className="text-sm text-white/45">{a.detalle}</p>
+          </div>
+        </div>
+
+        {/* Onda: hielo (gotas que bajan) o corriente (onda que avanza) */}
+        <div className="mt-6 h-16 overflow-hidden rounded-lg border border-white/10 bg-black/30">
+          <svg viewBox="0 0 400 64" preserveAspectRatio="none" className="h-full w-[200%] motion-safe:animate-[onda_2.5s_linear_infinite]">
+            <path
+              d={
+                i === 0
+                  ? "M0 32 Q25 20 50 32 T100 32 T150 32 T200 32 T250 32 T300 32 T350 32 T400 32"
+                  : i === 1
+                    ? "M0 32 Q12 4 25 32 T50 32 T75 32 T100 32 T125 32 T150 32 T175 32 T200 32 T225 32 T250 32 T275 32 T300 32 T325 32 T350 32 T375 32 T400 32"
+                    : "M0 54 L0 10 L60 10 L60 54 L100 54 L100 10 L160 10 L160 54 L200 54 L200 10 L260 10 L260 54 L300 54 L300 10 L360 10 L360 54 L400 54"
+              }
+              fill="none"
+              stroke="#a5b4fc"
+              strokeWidth="3"
+            />
+          </svg>
+        </div>
+
+        <p className="mt-4 text-sm leading-relaxed text-white/70">{a.dosis}</p>
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------
+// Esquema día a día: recorre los días con su meta
+// ---------------------------------------------------------------------
+function DemoEsquema() {
+  const periodos = esquema.periodos;
+  const i = useTick(2400) % periodos.length;
+  const p = periodos[i];
+
+  return (
+    <div className="flex h-full flex-col px-7 py-6">
+      <div className="grid grid-cols-5 gap-1.5">
+        {periodos.map((x, j) => (
+          <div
+            key={x.periodo}
+            className={`rounded-lg border px-1 py-2 text-center text-[11px] font-bold leading-tight transition-all duration-500 ${
+              j === i
+                ? "border-orange-300 bg-orange-500 text-white shadow-[0_0_20px_rgba(234,88,12,0.5)]"
+                : j < i
+                  ? "border-orange-300/30 bg-orange-500/20 text-orange-100"
+                  : "border-white/10 bg-white/[0.03] text-white/40"
+            }`}
+          >
+            {x.periodo.replace("Días ", "").replace("Día ", "")}
+          </div>
+        ))}
+      </div>
+
+      <div key={i} className="mt-5 motion-safe:animate-aparecer">
+        <p className="text-xs uppercase tracking-widest text-white/45">{p.etiqueta}</p>
+        <p className="mt-1 text-xl font-semibold">{p.periodo}</p>
+        <ul className="mt-3 space-y-1.5 text-sm text-white/65">
+          {p.acciones.slice(0, 3).map((a) => (
+            <li key={a} className="flex gap-2">
+              <span className="text-orange-300">•</span>
+              <span className="line-clamp-1">{a}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-4 rounded-lg border border-white/10 bg-black/30 px-3 py-2 text-xs text-white/60">
+          <span className="font-semibold text-white/85">Meta: </span>
+          {p.meta}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------
+// Bibliografía: las referencias suben como en un fichero
+// ---------------------------------------------------------------------
+function DemoBibliografia() {
+  const refs = bibliografia.items.map((r) => {
+    const [autores, resto = ""] = r.split(/\)\.\s/);
+    return { autores: `${autores})`, titulo: resto.replace(/\*/g, "") };
+  });
+
+  return (
+    <div className="h-full px-7 pt-6 [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_85%,transparent)]">
+      <div className="flex flex-col gap-3 pb-3 motion-safe:animate-subir">
+        {[...refs, ...refs].map((r, i) => (
+          <div key={i} className="rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3">
+            <p className="truncate text-xs font-semibold text-slate-200">{r.autores}</p>
+            <p className="mt-1 line-clamp-2 text-sm text-white/55">{r.titulo}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------
+// Banner: la infografía se recorre de arriba hacia abajo
+// ---------------------------------------------------------------------
+function DemoBanner() {
+  return (
+    <div className="flex h-full items-center justify-center px-7 py-6">
       <div
-        className="absolute rounded-full border border-white/25 shadow-[0_0_40px_rgba(167,139,250,0.35)]"
-        style={{ width: radio * 2, height: radio * 2 }}
+        className="h-full w-full max-w-[280px] rounded-xl bg-no-repeat shadow-2xl shadow-black/60 ring-1 ring-white/15 motion-safe:animate-[paneo_14s_ease-in-out_infinite_alternate]"
+        style={{ backgroundImage: `url(${banner.imagen})`, backgroundSize: "100% auto", backgroundPosition: "50% 0%" }}
       />
-      <div className="absolute h-[140px] w-[140px] rounded-full border border-white/10" />
-      <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-brand-600/40 text-3xl shadow-[0_0_40px_rgba(155,63,230,0.6)]">
-        🔬
-      </div>
-
-      <div className="absolute motion-safe:animate-orbitar" style={{ width: radio * 2, height: radio * 2 }}>
-        {personas.map((p, i) => {
-          const ang = (i / personas.length) * 360;
-          return (
-            <div
-              key={i}
-              className="absolute left-1/2 top-1/2"
-              style={{ transform: `rotate(${ang}deg) translateY(-${radio}px) rotate(${-ang}deg)` }}
-            >
-              <span className="flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/25 bg-linear-to-b from-brand-500 to-brand-900 text-xs font-bold shadow-lg motion-safe:animate-contraorbitar">
-                {iniciales(p.nombre)}
-              </span>
-            </div>
-          );
-        })}
-      </div>
-
-      <p className="absolute bottom-5 text-xs uppercase tracking-widest text-white/40">
-        {personas.length} integrantes · {investigacion.grupos.length} equipos
-      </p>
     </div>
   );
 }

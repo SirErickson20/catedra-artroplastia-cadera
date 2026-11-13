@@ -6,14 +6,14 @@ import { evaluacion } from "@/data/content";
 export const metadata = { title: "Evaluación kinésica" };
 
 export default function EvaluacionPage() {
-  const { titulo, descripcion, componentes, escalas } = evaluacion;
+  const { titulo, descripcion, componentes, seguridad } = evaluacion;
 
   return (
     <>
       <PageHeader titulo={titulo} descripcion={descripcion} />
 
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        {/* Componentes */}
+        {/* Qué evaluar */}
         <section>
           <SectionTitle titulo={componentes.titulo} subtitulo={componentes.subtitulo} />
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -25,17 +25,24 @@ export default function EvaluacionPage() {
           </div>
         </section>
 
-        {/* Escalas y pruebas */}
+        {/* Algoritmo de seguridad */}
         <section className="mt-20">
-          <SectionTitle titulo={escalas.titulo} subtitulo={escalas.subtitulo} />
+          <SectionTitle titulo={seguridad.titulo} subtitulo={seguridad.subtitulo} />
+          <p className="mt-4 max-w-3xl text-white/60">{seguridad.intro}</p>
+
           <div className="mt-8 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+            <div className="hidden grid-cols-[14rem_1fr_auto] gap-6 border-b border-white/10 px-6 py-3 text-xs font-semibold uppercase tracking-widest text-white/40 sm:grid">
+              <span>Parámetro clínico</span>
+              <span>Criterio de seguridad requerido</span>
+              <span>Estado</span>
+            </div>
             <ul className="divide-y divide-white/5">
-              {escalas.items.map((e) => (
-                <li key={e.nombre} className="flex flex-col gap-1 px-6 py-4 sm:flex-row sm:items-center sm:gap-6">
-                  <span className="font-semibold text-white sm:w-56 sm:shrink-0">{e.nombre}</span>
-                  <span className="flex-1 text-sm text-white/60">{e.mide}</span>
+              {seguridad.filas.map((f) => (
+                <li key={f.parametro} className="grid gap-1 px-6 py-4 sm:grid-cols-[14rem_1fr_auto] sm:items-center sm:gap-6">
+                  <span className="font-semibold text-white">{f.parametro}</span>
+                  <span className="text-sm text-white/70">{f.criterio}</span>
                   <span className="self-start rounded-full bg-pink-500/15 px-2.5 py-0.5 text-xs font-semibold text-pink-200 ring-1 ring-pink-400/30 sm:self-auto">
-                    {e.rango}
+                    Obligatorio
                   </span>
                 </li>
               ))}

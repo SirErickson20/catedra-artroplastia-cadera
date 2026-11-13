@@ -1,12 +1,23 @@
 /**
- * Video de YouTube responsivo (16:9).
- * Usa youtube-nocookie.com para no cargar cookies de seguimiento.
- * Si no hay youtubeId muestra un recuadro "Video próximamente".
+ * Video responsivo (16:9).
+ * - archivo: video propio dentro de /public (ej: "/videos/bombeo-tobillo.mp4")
+ * - youtubeId: alternativa para videos de YouTube (usa youtube-nocookie.com)
+ * Si no hay ninguno muestra un recuadro "Video próximamente".
  */
-export default function VideoEmbed({ youtubeId, titulo }) {
+export default function VideoEmbed({ archivo, youtubeId, titulo, poster }) {
   return (
     <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-white/[0.04] ring-1 ring-white/10">
-      {youtubeId ? (
+      {archivo ? (
+        <video
+          className="absolute inset-0 h-full w-full bg-black object-contain"
+          src={archivo}
+          poster={poster}
+          controls
+          playsInline
+          preload="metadata"
+          aria-label={titulo}
+        />
+      ) : youtubeId ? (
         <iframe
           className="absolute inset-0 h-full w-full"
           src={`https://www.youtube-nocookie.com/embed/${youtubeId}`}

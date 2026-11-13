@@ -34,7 +34,9 @@ export default function PrecaucionesPage() {
               <div key={p.abordaje} className={`${panel} relative overflow-hidden`}>
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(100%_60%_at_50%_0%,rgba(14,116,144,0.3),transparent_70%)]" />
                 <h3 className="relative font-semibold text-cyan-100">Abordaje {p.abordaje}</h3>
-                <p className="relative mt-3 text-xs font-semibold uppercase tracking-widest text-white/40">Evitar</p>
+                <p className="relative mt-3 text-xs font-semibold uppercase tracking-widest text-white/40">
+                  Movimientos prohibidos / riesgo de luxación
+                </p>
                 <ul className="relative mt-2 space-y-1.5 text-sm text-white/80">
                   {p.evitar.map((e) => (
                     <li key={e} className="flex gap-2">
@@ -43,6 +45,21 @@ export default function PrecaucionesPage() {
                     </li>
                   ))}
                 </ul>
+                {p.posicionamiento && (
+                  <>
+                    <p className="relative mt-5 text-xs font-semibold uppercase tracking-widest text-white/40">
+                      Precauciones de posicionamiento
+                    </p>
+                    <ul className="relative mt-2 space-y-1.5 text-sm text-white/80">
+                      {p.posicionamiento.map((e) => (
+                        <li key={e} className="flex gap-2">
+                          <span className="text-cyan-300" aria-hidden="true">✓</span>
+                          {e}
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
               </div>
             ))}
           </div>
